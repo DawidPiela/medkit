@@ -1,0 +1,130 @@
+$phone: "only screen and (min-width: 768px)";
+$tablet: "only screen and (min-width: 992px)";
+$desktop: "only screen and (min-width: 1200px)";
+
+$base-text-color: #888;
+$base-header-color: #434343;
+$light-text-color: #D4D4D4;
+$dark-text-color: #000;
+$menu-link-color: #3A3C43;
+
+// $accent-color: #00c2e5;
+$accent-color: #3B86FF;
+// 3B86FF
+// FF6565
+// A3A0FB
+// 43425D
+$base-border-color: #DDD;
+
+$base-background: #FFF;
+$alternate-background: #ebebeb;
+$footer-background: #43444D;
+$footer-copyright-background: #31323A;
+
+$footer-borders: #535353;
+
+@mixin dark-overlay {
+  content: "";
+  z-index: 0;
+  position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+  background: none repeat 0 0 rgba(30, 30, 30, 0.5);
+}
+
+@mixin center-text {
+  text-align: center;
+}
+
+@mixin float-left {
+  float: left;
+}
+
+@mixin float-right {
+  float: right;
+}
+
+@mixin invisible {
+  display: none;
+}
+
+@mixin inline-block {
+  display: inline-block;
+}
+
+@mixin block {
+  display: block;
+}
+
+@mixin center-vertical {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin list-style-none {
+  list-style-type: none;
+}
+
+@mixin section-border-bottom($border-color: $base-border-color) {
+  border-bottom: 1px solid $border-color;
+}
+
+@mixin overflow-fix {
+  overflow: auto;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin base-transition {
+  transition: all 0.2s ease-in-out;
+}
+
+$base-font-size: 13px;
+$base-line-height: 24px;
+$paragraph-margin: 0 0 15px;
+
+@mixin header-mixin($header-font-size, $header-margin-bottom, $header-color: $base-header-color) {
+  font-size: $header-font-size;
+  margin: 0 0 $header-margin-bottom 0;
+  color: $header-color;
+  font-weight: 500;
+}
+
+$font-family-primary: 'Open Sans', sans-serif;
+$font-family-secondary: 'Lato', sans-serif;
+
+body {
+  font-size: $base-font-size;
+  font-family: $font-family-primary;
+  color: $base-text-color;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+p {
+  margin: $paragraph-margin;
+  line-height: $base-line-height;
+  // word-break: break-all;
+}
+
+h2 {
+  @include header-mixin(24px, 12px);
+}
+
+h3 {
+  @include header-mixin(18px, 18px);
+}

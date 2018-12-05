@@ -1,0 +1,53 @@
+@import "../../../styles/main.scss";
+
+.bgPhoto {
+  background: url("../../../assets/images/bg.png") no-repeat;
+  background-size: cover;
+  background-position: 0 0;
+  z-index: 0;
+  border-bottom: 1px solid $base-border-color;
+  .bgContent {
+    z-index: 1;
+    position: relative;
+    padding: 0 0 100px;
+    @media #{$phone} {
+      padding: 0 0 150px;
+    }
+    @media #{$tablet} {
+      padding: 0 0 200px;
+    }
+    @media #{$desktop} {
+      padding: 0 0 300px;
+    }
+  }
+  h1 {
+    @include header-mixin(26px, 20px, $light-text-color);
+    padding: 130px 0 0;
+    line-height: 33px;
+    @media #{$phone} {
+      font-size: 33px;
+    }
+    @media #{$tablet} {
+      font-size: 40px;
+      line-height: 60px;
+    }
+    @media #{$desktop} {
+      font-size: 48px;
+    }
+  }
+  p {
+    font-size: 12px;
+    margin: 0;
+    color: $light-text-color;
+    font-weight: 400;
+    @media #{$phone} {
+      font-size: 14px;
+    }
+    @media #{$tablet} {
+      font-size: 18px;
+    }
+    @media #{$desktop} {
+      font-size: 22px;
+    }
+  }
+}

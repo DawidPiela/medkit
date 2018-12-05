@@ -1,0 +1,13 @@
+@import '../../../styles/main.scss';
+
+.team {
+  padding: 50px 0 0;
+  @include center-text;
+  @include section-border-bottom;
+  @include overflow-fix;
+}
+
+.teamMembers {
+  @include overflow-fix;
+  margin-bottom: 40px;
+}

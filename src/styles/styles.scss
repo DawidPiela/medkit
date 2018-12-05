@@ -1,0 +1,33 @@
+$columns: 12;
+$column-width: 60;
+$gutter-width: 30;
+$total-width: 100%;
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  clear: both;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.title {
+  margin-bottom: 45px;
+  @include center-text;
+}
+
+h1, h2, h3 {
+  line-height: 1.1;
+}

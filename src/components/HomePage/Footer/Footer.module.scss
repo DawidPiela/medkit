@@ -1,0 +1,49 @@
+@import '../../../styles/main.scss';
+
+footer {
+  background-color: $footer-background;
+  color: $light-text-color;
+}
+
+.footerTop {
+  padding: 40px 0;
+  @include overflow-fix;
+  h3 {
+    @include header-mixin(18px, 30px, $light-text-color);
+  }
+  .oneCol {
+    margin-bottom: 30px;
+    @include column(12);
+    @media #{$tablet} {
+      margin-bottom: 0;
+      @include column(6);
+    }
+  }
+}
+
+.contact {
+  li {
+    @include block;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid $footer-borders;
+    // word-break: break-all;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.footerBottom {
+  padding: 20px 0;
+  background-color: $footer-copyright-background;
+  border-top: 1px solid $footer-borders;
+  p {
+    font-size: 12px;
+    color: $base-text-color;
+    margin: 0;
+    a {
+      color: $light-text-color;
+    }
+  }
+}
