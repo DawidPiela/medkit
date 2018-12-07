@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import styles from "./Footer.module.scss";
+import styles from './Footer.module.scss';
 
 class Footer extends Component {
   render() {
@@ -29,7 +29,7 @@ class Footer extends Component {
         <div className={styles.footerBottom}>
           <div className={styles.container}>
             <p>
-              Copyright 2018 © <a href="a">medkit.com</a>
+              Copyright 2018 © <a href='a'>medkit.com</a>
             </p>
           </div>
         </div>

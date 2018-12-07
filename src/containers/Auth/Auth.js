@@ -1,43 +1,21 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
-import Input from "../../components/UI/Input/Input";
-import Button from "../../components/UI/Button/Button";
-import Spinner from "../../components/UI/Spinner/Spinner";
-import * as actions from "../../store/actions/index";
+import Header from '../../components/HomePage/Header/Header';
+import Input from '../../components/UI/Input/Input';
+import Button from '../../components/UI/Button/Button';
+import Spinner from '../../components/UI/Spinner/Spinner';
+import * as actions from '../../store/actions/index';
+import * as elements from './authElements';
 
 class Auth extends Component {
   state = {
     controls: {
-      email: {
-        elementType: "input",
-        elementConfig: {
-          type: "email",
-          placeholder: "Mail Address"
-        },
-        value: "",
-        validation: {
-          required: true,
-          isEmail: true
-        },
-        valid: false,
-        touched: false
-      },
-      password: {
-        elementType: "input",
-        elementConfig: {
-          type: "password",
-          placeholder: "Password"
-        },
-        value: "",
-        validation: {
-          required: true,
-          minLength: 6
-        },
-        valid: false,
-        touched: false
-      }
+      firstName: elements.firstName,
+      lastName: elements.lastName,
+      email: elements.email,
+      password: elements.password
     },
     isSignup: true
   };
@@ -53,7 +31,7 @@ class Auth extends Component {
     }
 
     if (rules.required) {
-      isValid = value.trim() !== "" && isValid;
+      isValid = value.trim() !== '' && isValid;
     }
 
     if (rules.minLength) {
@@ -102,9 +80,35 @@ class Auth extends Component {
     );
   };
 
+  switchAuthModeContentHandler = () => {
+    this.setState(prevState => {
+      return {
+        isSignup: !prevState.isSignup
+      };
+    });
+    if (this.state.isSignup) {
+      this.setState({
+        controls: {
+          email: elements.email,
+          password: elements.password
+        }
+      })
+    } else {
+      this.setState({
+        controls: {
+          firstName: elements.firstName,
+          lastName: elements.lastName,
+          ...this.state.controls
+        }
+      });
+    }
+  };
+
   switchAuthModeHandler = () => {
     this.setState(prevState => {
-      return { isSignup: !prevState.isSignup };
+      return {
+        isSignup: !prevState.isSignup
+      };
     });
   };
 
@@ -135,7 +139,6 @@ class Auth extends Component {
     }
 
     let errorMessage = null;
-
     if (this.props.error) {
       errorMessage = <p>{this.props.error.message}</p>;
     }
@@ -147,14 +150,20 @@ class Auth extends Component {
 
     return (
       <div>
+        <Header />
         {authRedirect}
         {errorMessage}
         <form onSubmit={this.submitHandler}>
+          <p>
+            {this.state.isSignup
+              ? 'Please complete the form below to create your account.'
+              : 'Welcome back! Please log in to your account.'}
+          </p>
           {form}
-          <Button btnType="Success">SUBMIT</Button>
+          <Button btnType='Success'>SUBMIT</Button>
         </form>
-        <Button clicked={this.switchAuthModeHandler} btnType="Danger">
-          SWITCH TO {this.state.isSignup ? "LOG IN" : "SIGN UP"}
+        <Button clicked={this.switchAuthModeContentHandler} btnType='Danger'>
+          SWITCH TO {this.state.isSignup ? 'LOG IN' : 'SIGN UP'}
         </Button>
       </div>
     );
@@ -175,7 +184,7 @@ const mapDispatchToProps = dispatch => {
     onAuth: (email, password, isSignup) =>
       dispatch(actions.auth(email, password, isSignup)),
     onSetAuthRedirectPath: () =>
-      dispatch(actions.setAuthRedirectPath("/dashboard"))
+      dispatch(actions.setAuthRedirectPath('/dashboard'))
   };
 };
 

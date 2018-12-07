@@ -25,7 +25,7 @@ $total-width: gridsystem-width($columns);
 
   &:before,
   &:after {
-    content:"";
+    content:'';
     display:table;
   }
   &:after {

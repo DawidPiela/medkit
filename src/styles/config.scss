@@ -1,6 +1,6 @@
-$phone: "only screen and (min-width: 768px)";
-$tablet: "only screen and (min-width: 992px)";
-$desktop: "only screen and (min-width: 1200px)";
+$phone: 'only screen and (min-width: 768px)';
+$tablet: 'only screen and (min-width: 992px)';
+$desktop: 'only screen and (min-width: 1200px)';
 
 $base-text-color: #888;
 $base-header-color: #434343;
@@ -24,7 +24,7 @@ $footer-copyright-background: #31323A;
 $footer-borders: #535353;
 
 @mixin dark-overlay {
-  content: "";
+  content: '';
   z-index: 0;
   position: absolute;
 	top: 0;
@@ -83,7 +83,7 @@ $footer-borders: #535353;
 
 @mixin clearfix {
   &:after {
-    content: "";
+    content: '';
     display: table;
     clear: both;
   }

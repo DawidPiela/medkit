@@ -19,10 +19,10 @@ class OurDoctors extends Component {
             </p>
           </div>
           <div className={styles.teamMembers}>
-            <Doctor photo={DoctorPhoto1} fullName="Joan Quinn" position="Sport Physician" />
-            <Doctor photo={DoctorPhoto2} fullName="Vince Patel" position="Cardiologist" />
-            <Doctor photo={DoctorPhoto3} fullName="Susan Reily" position="Dietician" />
-            <Doctor photo={DoctorPhoto4} fullName="Mike Jones" position="Internist" />
+            <Doctor photo={DoctorPhoto1} fullName='Joan Quinn' position='Sport Physician' />
+            <Doctor photo={DoctorPhoto2} fullName='Vince Patel' position='Cardiologist' />
+            <Doctor photo={DoctorPhoto3} fullName='Susan Reily' position='Dietician' />
+            <Doctor photo={DoctorPhoto4} fullName='Mike Jones' position='Internist' />
           </div>
         </div>
       </div>
