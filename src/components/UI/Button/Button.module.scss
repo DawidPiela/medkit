@@ -1,29 +1,28 @@
+@import '../../../styles/main.scss';
+
 .Button {
-    background-color: transparent;
-    border: none;
+    background-color: $accent-color-navy;
+    border: 1px solid $accent-color-navy;
+    border-radius: 5px;
     color: white;
     outline: none;
     cursor: pointer;
     font: inherit;
-    padding: 10px;
-    margin: 10px;
-    font-weight: bold;
-}
-
-.Button:first-of-type {
-    margin-left: 0;
-    padding-left: 0;
-}
-
-.Button:disabled {
-    color: #ccc;
-    cursor: not-allowed;
+    padding: 15px 20px;
+    margin: 25px 15px 0px;
+    width: 80%;
+    @media #{$phone} {
+        padding: 15px 30px;
+        margin: 25px 15px 0px;
+        width: 40%;
+    }
 }
 
 .Success {
-    color: #5C9210;
+    color: white;
 }
 
 .Danger {
-    color: #944317;
+    background-color: white;
+    color: $accent-color-navy;
 }

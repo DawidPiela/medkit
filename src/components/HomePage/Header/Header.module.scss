@@ -45,7 +45,7 @@ header {
       margin: 0;
       cursor: pointer;
       &:hover {
-        color: $accent-color;
+        color: $accent-color-blue;
       }
     }
   }
@@ -88,7 +88,7 @@ header {
           box-shadow: none;
           cursor: pointer;
           &:hover {
-            color: $accent-color;
+            color: $accent-color-blue;
           }
         }
       }

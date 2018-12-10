@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
+import styles from './Auth.module.scss';
 import Header from '../../components/HomePage/Header/Header';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
@@ -140,7 +141,7 @@ class Auth extends Component {
 
     let errorMessage = null;
     if (this.props.error) {
-      errorMessage = <p>{this.props.error.message}</p>;
+      errorMessage = <p className={styles.error}>{this.props.error.message}</p>;
     }
 
     let authRedirect = null;
@@ -152,8 +153,8 @@ class Auth extends Component {
       <div>
         <Header />
         {authRedirect}
+        <form className={styles.form} onSubmit={this.submitHandler}>
         {errorMessage}
-        <form onSubmit={this.submitHandler}>
           <p>
             {this.state.isSignup
               ? 'Please complete the form below to create your account.'
@@ -161,10 +162,10 @@ class Auth extends Component {
           </p>
           {form}
           <Button btnType='Success'>SUBMIT</Button>
+          <Button clicked={this.switchAuthModeContentHandler} btnType='Danger'>
+            SWITCH TO {this.state.isSignup ? 'LOG IN' : 'SIGN UP'}
+          </Button>
         </form>
-        <Button clicked={this.switchAuthModeContentHandler} btnType='Danger'>
-          SWITCH TO {this.state.isSignup ? 'LOG IN' : 'SIGN UP'}
-        </Button>
       </div>
     );
   }

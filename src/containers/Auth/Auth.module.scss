@@ -1,0 +1,32 @@
+@import '../../styles/main.scss';
+
+.form {
+    width: 80%;
+    max-width: 500px;
+    background-color: $base-background;
+    border: 1px solid $base-border-color;
+    border-radius: 10px;
+    @include center-text;
+    @include base-transition;
+    padding: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    input[type] {
+        color: $accent-color-navy;
+        border: none;
+        border-bottom: 1px solid $base-border-color;
+      }
+    ::placeholder {
+        color: $accent-color-navy;
+        opacity: 1;
+    }
+    p {
+        font-size: 15px;
+    }
+}
+
+.error {
+    color: red;
+}
