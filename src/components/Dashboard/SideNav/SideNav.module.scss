@@ -1,0 +1,58 @@
+@import '../../../styles/main.scss';
+
+.sideNav {
+  height: 100%;
+  width: 260px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: $accent-color-navy;
+  overflow-x: hidden;
+  a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: $font-family-secondary;
+    font-weight: 400;
+    color: white;
+    display: block;
+    i {
+      text-align: center;
+    }
+  }
+  a:hover {
+    color: $light-text-color;
+  }
+  span {
+    @include inline-block;
+    margin: 12px;
+    i {
+      font-size: 17px;
+      color: #A5A4BF;
+    }
+  }
+  ul {
+    margin: 10px 0 0;
+    padding: 0;
+  }
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.name {
+  padding: 28px 0 28px 28px;
+  display: block;
+  background-color: #3b3b53;
+  height: 73px;
+  width: 100%;
+  p {
+    font-size: 20px;
+    font-family: $font-family-secondary;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: white;
+  }
+}

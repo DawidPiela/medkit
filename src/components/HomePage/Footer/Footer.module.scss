@@ -18,6 +18,9 @@ footer {
       margin-bottom: 0;
       @include column(6);
     }
+    ul {
+      padding: 0;
+    }
   }
 }
 

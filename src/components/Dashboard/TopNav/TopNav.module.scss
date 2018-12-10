@@ -1,0 +1,99 @@
+@import '../../../styles/main.scss';
+
+header {
+  padding-left: 260px;
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: $base-background;
+  border-bottom: 1px solid $base-border-color;
+  box-shadow: 0 0 1px $base-border-color;
+  .navbar {
+    height: 73px;
+  }
+  .container {
+    padding: 0;
+  }
+}
+
+.menuContent {
+  text-align: right;
+  line-height: 73px;
+  @include float-right;
+  @include center-vertical;
+  .menu {
+    @include block;
+    @include list-style-none;
+    li {
+      @include float-left;
+      @include block;
+      a {
+        @include base-transition;
+        color: $menu-link-color;
+        font-size: 15px;
+        font-family: $font-family-secondary;
+        font-weight: 400;
+        padding: 20px 14px;
+        line-height: 20px;
+        border-bottom: none;
+        box-shadow: none;
+        cursor: pointer;
+        &:hover {
+          color: $accent-color-blue;
+        }
+      }
+      p {
+        @include base-transition;
+        height: auto;
+        width: auto;
+        color: $menu-link-color;
+        font-size: 15px;
+        font-family: $font-family-secondary;
+        font-weight: 400;
+        padding: 26px 5px 27px 10px;
+        margin: 0;
+        line-height: 20px;
+        border-bottom: none;
+        box-shadow: none;
+      }
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.separator {
+  border-left: 1px solid black;
+  @include base-transition;
+  color: $menu-link-color;
+  height: 10px;
+  padding: 20px 14px 10px;
+  margin-top: 21px;
+}
+
+.namePanel {
+  @include float-left;
+  @include block;
+  cursor: pointer;
+  height: 73px;
+}
+
+.centerImg {
+  @include float-left;
+  @include block;
+  height: 73px;
+  margin: 18px 0 0 10px; 
+}
+
+.userPhoto {
+  background: url('../../../assets/images/doctor_4.jpg') no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}

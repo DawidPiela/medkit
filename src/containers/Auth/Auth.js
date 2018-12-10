@@ -153,7 +153,7 @@ class Auth extends Component {
       <div>
         <Header />
         {authRedirect}
-        <form className={styles.form} onSubmit={this.submitHandler}>
+        <form onSubmit={this.submitHandler}>
         {errorMessage}
           <p>
             {this.state.isSignup

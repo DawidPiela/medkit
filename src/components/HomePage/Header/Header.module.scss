@@ -64,6 +64,10 @@ header {
   #toggle:checked + #menu {
     @include block;
   }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .menuContent {
