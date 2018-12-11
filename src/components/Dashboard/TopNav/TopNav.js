@@ -6,7 +6,7 @@ import styles from './TopNav.module.scss';
 class TopNav extends Component {
   render() {
     return (
-      <header>
+      <header className={styles.header}>
         <nav>
           <div className={styles.container}>
             <div className={styles.navbar}>
