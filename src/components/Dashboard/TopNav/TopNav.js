@@ -22,6 +22,18 @@ class TopNav extends Component {
                     </li>
                     <li><span><i className='fa fa-fw fa-angle-down' aria-hidden='true'></i></span></li>
                     <li><div className={styles.centerImg}><div className={styles.userPhoto}></div></div></li>
+                    <div className={styles.dropdownMenu}>
+                      <a className={styles.dropdownItem} href='/'>
+                      <i className='fa fa-fw fa-id-card-alt' aria-hidden='true'></i>
+                      <span>Profile</span></a>
+                      <a className={styles.dropdownItem} href='/'>
+                      <i className='fa fa-fw fa-cog' aria-hidden='true'></i>
+                      <span>Settings</span></a>
+                      <div className={styles.divider}></div>
+                      <a className={styles.dropdownItem} href='/'>
+                      <i className='fa fa-fw fa-power-off' aria-hidden='true'></i>
+                      <span>Log out</span></a>
+                    </div>
                   </div>
                 </ul>
               </div>
