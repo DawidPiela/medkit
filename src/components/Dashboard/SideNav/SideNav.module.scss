@@ -1,24 +1,7 @@
 @import '../../../styles/main.scss';
 
-
-
-.sideBox {
-  height: 100%;
-  width: 80px;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: fixed;
-  float: left;
-  display: block;
-  background-color: $accent-color-navy;
-  overflow-x: hidden;
-  @media #{$desktop} {
-    width: 260px;
-  }
-}
+$mobile-box-width: 80px;
+$desktop-box-width: 260px;
 
 .sideNavigation {
   z-index: 1;
@@ -26,7 +9,7 @@
   top: 0;
   left: 0;
   h1 {
-    z-index: 2;
+    z-index: 3;
     font-size: 20px;
     font-family: $font-family-secondary;
     font-weight: bold;
@@ -36,12 +19,69 @@
     margin: 0;
     position: absolute;
   }
-  ul {
-    z-index: 2;
+  label {
+    left: 29px;
+    color: #A5A4BF;
+    z-index: 3;
+    display: inline-block;
+    position: relative;
+    margin: 30px 0 0;
+    width: 22px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  #toggle {
+    z-index: 4;
+    @include invisible;
+  }
+  #toggle:checked ~ h1 {
+    left: 100px;
+    display: inline-block;
     position: absolute;
+    margin: 30px 0;
+    text-align: center;
+  }
+  #toggle:checked ~ .sideBox {
+    width: 260px;
+  }
+  #toggle:checked ~ .sideBoxTop {
+    width: 260px;
+  }
+  #toggle:checked ~ ul {
+    width: 100%;
+    display: block;
+    position: relative;
+    margin: 30px auto;
+    padding: 0;
+    li {
+      width: 130px;
+      margin: auto;
+    }
+    span {
+      margin: 12px 12px 12px 0;
+    }
+    p {
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  ul {
+    left: 29px;
+    width: 21.25px;
+    z-index: 3;
+    position: relative;
+    margin: 30px auto;
+    padding: 0;
+  }
+  li {
+    margin: 0;
+    padding: 0;
   }
   a {
-    padding: 6px 8px 6px 0;
+    padding: 6px 0px 6px 0;
     text-decoration: none;
     font-size: 15px;
     font-family: $font-family-secondary;
@@ -55,162 +95,52 @@
   a:hover {
     color: $light-text-color;
   }
-  p {
-    margin: 0;
-    padding: 0;
-    display: none;
-  }
   span {
     @include inline-block;
-    margin: 12px 12px 12px 0;
+    margin: 12px 0px 12px 0;
     i {
       font-size: 17px;
       color: #A5A4BF;
     }
   }
-  ul {
-    margin: 30px 0 0;
-    padding: 0;
-  }
-  li {
+  p {
     margin: 0;
     padding: 0;
-  }
-  label {
-    display: inline-block;
-    margin: 0;
-    width: 22px;
-    font-size: 22px;
-    cursor: pointer;
-  }
-  #toggle {
-    @include invisible;
-  }
-  #toggle:checked + p {
-    display: block;
-  }
-  @media #{$desktop} {
-    p {
-      margin: 0;
-      padding: 0;
-      display: inline-block;
-    }
-    label {
-      @include invisible;
-    }
-    h1 {
-      display: block;
-    }
-    ul {
-      margin: 30px 0 0;
-      padding: 0;
-    }
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
   }
 }
 
+.sideBox {
+  @include base-transition;
+  height: 100%;
+  width: $mobile-box-width;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  float: left;
+  display: block;
+  background-color: $accent-color-navy;
+  overflow-x: hidden;
+}
 
-
-
-
-
-
-
-// .sideNav {
-//   height: 100%;
-//   width: 80px;
-//   position: fixed;
-//   z-index: 1;
-//   top: 0;
-//   left: 0;
-//   background-color: $accent-color-navy;
-//   overflow-x: hidden;
-//   a {
-//     padding: 6px 8px 6px 0;
-//     text-decoration: none;
-//     font-size: 15px;
-//     font-family: $font-family-secondary;
-//     font-weight: 400;
-//     color: white;
-//     display: block;
-//     i {
-//       text-align: center;
-//     }
-//   }
-//   a:hover {
-//     color: $light-text-color;
-//   }
-//   p {
-//     margin: 0;
-//     padding: 0;
-//     display: none;
-//   }
-//   span {
-//     @include inline-block;
-//     margin: 12px 12px 12px 0;
-//     i {
-//       font-size: 17px;
-//       color: #A5A4BF;
-//     }
-//   }
-//   ul {
-//     margin: 30px 0 0;
-//     padding: 0;
-//     @media #{$desktop} {
-//       margin: 30px 0 0;
-//       padding: 0;
-//     }
-//   }
-//   li {
-//     margin: 0;
-//     padding: 0;
-//   }
-//   @media #{$desktop} {
-//     width: 260px;
-//     p {
-//       margin: 0;
-//       padding: 0;
-//       display: inline-block;
-//     }
-//   }
-// }
-
-// .name {
-//   padding: 28px 0 28px 28px;
-//   display: block;
-//   background-color: #3b3b53;
-//   height: 73px;
-//   width: 100%;
-//   h1 {
-//     font-size: 20px;
-//     font-family: $font-family-secondary;
-//     font-weight: bold;
-//     letter-spacing: 3px;
-//     color: white;
-//     display: none;
-//     margin: 0;
-//   }
-//   label {
-//     display: inline-block;
-//     margin: 0;
-//     width: 22px;
-//     font-size: 22px;
-//     cursor: pointer;
-//   }
-//   #toggle {
-//     @include invisible;
-//   }
-//   #toggle:checked + p {
-//     display: block;
-//   }
-//   @media #{$desktop} {
-//     h1 {
-//       display: block;
-//     }
-//     label {
-//       @include invisible;
-//     }
-//     #toggle {
-//       @include invisible;
-//     }
-//   }
-// }
+.sideBoxTop {
+  @include base-transition;
+  height: 73px;
+  width: $mobile-box-width;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  float: left;
+  display: block;
+  background-color: #36354A;
+  overflow-x: hidden;
+}
