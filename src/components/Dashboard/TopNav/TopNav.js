@@ -23,16 +23,19 @@ class TopNav extends Component {
                     <li><span><i className='fa fa-fw fa-angle-down' aria-hidden='true'></i></span></li>
                     <li><div className={styles.centerImg}><div className={styles.userPhoto}></div></div></li>
                     <div className={styles.dropdownMenu}>
-                      <a className={styles.dropdownItem} href='/'>
+                      <NavLink className={styles.dropdownItem} to='/dashboard'>
                       <i className='fa fa-fw fa-id-card-alt' aria-hidden='true'></i>
-                      <span>Profile</span></a>
-                      <a className={styles.dropdownItem} href='/'>
+                      <span>Profile</span>
+                      </NavLink>
+                      <NavLink className={styles.dropdownItem} to ='/dashboard'>
                       <i className='fa fa-fw fa-cog' aria-hidden='true'></i>
-                      <span>Settings</span></a>
+                      <span>Settings</span>
+                      </NavLink>
                       <div className={styles.divider}></div>
-                      <a className={styles.dropdownItem} href='/'>
+                      <NavLink className={styles.dropdownItem} to='/logout'>
                       <i className='fa fa-fw fa-power-off' aria-hidden='true'></i>
-                      <span>Log out</span></a>
+                      <span>Log out</span>
+                      </NavLink>
                     </div>
                   </div>
                 </ul>
