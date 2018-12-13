@@ -31,15 +31,17 @@
     li {
       @include float-left;
       @include block;
+      height: 73px;
       a {
         @include base-transition;
         color: $menu-link-color;
         font-size: 15px;
         font-family: $font-family-secondary;
         font-weight: 400;
-        padding: 20px 14px;
+        padding: 0 10px 0 0;
         line-height: 20px;
         border-bottom: none;
+        border-right: 1px solid black;
         box-shadow: none;
         cursor: pointer;
         &:hover {
@@ -54,7 +56,7 @@
         font-size: 15px;
         font-family: $font-family-secondary;
         font-weight: 400;
-        padding: 26px 5px 27px 10px;
+        padding: 0;
         margin: 0;
         line-height: 20px;
         border-bottom: none;
@@ -68,20 +70,25 @@
   }
 }
 
-.separator {
-  border-left: 1px solid black;
-  @include base-transition;
-  color: $menu-link-color;
-  height: 10px;
-  padding: 20px 14px 10px;
-  margin-top: 21px;
-}
-
 .namePanel {
   @include float-left;
   @include block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   height: 73px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: $menu-link-color;
+  align-items: center;
+  text-align: center;
+  line-height: 73px;
+  li {
+    text-align: center;
+    line-height: 73px;
+  }
 }
 
 .centerImg {
@@ -147,4 +154,37 @@
   margin: 8px 0;
   overflow: hidden;
   border-top: 1px solid #e9ecef;
+}
+
+.dontShow {
+  display: none;
+}
+
+.flexMenu {
+  height: 73px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border: 2px dashed #f69c55;
+}
+
+.menuItem {
+  height: 50px;
+  width: 70px;
+  border: 2px solid #f69c55;
+  float: right;
+  margin: 0px 10px 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    margin: 0;
+  }
+}
+
+.separator {
+  height: 25px;
+  border: none;
+  border-left: 1px solid black;
 }

@@ -11,12 +11,9 @@ class TopNav extends Component {
           <div className={styles.container}>
             <div className={styles.navbar}>
               <div className={styles.menuContent}>
-                <ul className={styles.menu}>
+                {/* <ul className={styles.menu}>
                   <li><NavLink to='/'>To the HomePage!</NavLink></li>
-                  <li>
-                    <div className={styles.separator}></div>
-                  </li>
-                  <div className={styles.namePanel}>
+                  <button className={styles.namePanel}>
                     <li>
                       <p>{this.props.fullName}</p>
                     </li>
@@ -37,8 +34,13 @@ class TopNav extends Component {
                       <span>Log out</span>
                       </NavLink>
                     </div>
-                  </div>
-                </ul>
+                  </button>
+                </ul> */}
+                <div className={styles.flexMenu}>
+                  <div className={styles.menuItem}><p>{this.props.fullName}</p></div>
+                  <div className={ `${styles.menuItem} ${styles.separator}` }></div>
+                  <div className={styles.menuItem}>010</div>
+                </div>
               </div>
             </div>
           </div>
