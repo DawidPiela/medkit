@@ -4,42 +4,65 @@ import { NavLink } from 'react-router-dom';
 import styles from './TopNav.module.scss';
 
 class TopNav extends Component {
+  state = {
+    click: false
+  }
+
+  dropdownMenuHandler = () => {
+    this.setState(prevState => {
+      return {
+        click: !prevState.click
+      }
+    })
+  }
+
   render() {
+    let dropdownClasses = `${styles.dropdownMenu} ${styles.dontShow}`
+
+    if (this.state.click) {
+      dropdownClasses = styles.dropdownMenu
+    } else {
+      dropdownClasses = `${styles.dropdownMenu} ${styles.dontShow}`
+    }
+
     return (
       <header className={styles.header}>
         <nav>
           <div className={styles.container}>
             <div className={styles.navbar}>
               <div className={styles.menuContent}>
-                {/* <ul className={styles.menu}>
-                  <li><NavLink to='/'>To the HomePage!</NavLink></li>
-                  <button className={styles.namePanel}>
-                    <li>
-                      <p>{this.props.fullName}</p>
-                    </li>
-                    <li><span><i className='fa fa-fw fa-angle-down' aria-hidden='true'></i></span></li>
-                    <li><div className={styles.centerImg}><div className={styles.userPhoto}></div></div></li>
-                    <div className={styles.dropdownMenu}>
-                      <NavLink className={styles.dropdownItem} to='/dashboard'>
-                      <i className='fa fa-fw fa-id-card-alt' aria-hidden='true'></i>
-                      <span>Profile</span>
-                      </NavLink>
-                      <NavLink className={styles.dropdownItem} to ='/dashboard'>
-                      <i className='fa fa-fw fa-cog' aria-hidden='true'></i>
-                      <span>Settings</span>
-                      </NavLink>
-                      <div className={styles.divider}></div>
-                      <NavLink className={styles.dropdownItem} to='/logout'>
-                      <i className='fa fa-fw fa-power-off' aria-hidden='true'></i>
-                      <span>Log out</span>
-                      </NavLink>
+                <div className={styles.flexMenu}>
+                  <div
+                    className={`${styles.menuItem} ${styles.menuLink}`}>
+                    <NavLink to='/'>To the Home Page!</NavLink></div>
+                  <div
+                    className={`${styles.menuItem} ${styles.menuSeparator}`}></div>
+                  <button onClick={this.dropdownMenuHandler} className={styles.navButton}>
+                    <div
+                      className={styles.menuItem}><p>{this.props.fullName}</p></div>
+                    <div
+                      className={styles.menuItem}><span><i
+                        className='fa fa-fw fa-angle-down'
+                        aria-hidden='true'></i></span></div>
+                    <div className={styles.menuItem}>
+                      <img className={styles.userPhoto} src={this.props.userPhoto} alt='user' />
                     </div>
                   </button>
-                </ul> */}
-                <div className={styles.flexMenu}>
-                  <div className={styles.menuItem}><p>{this.props.fullName}</p></div>
-                  <div className={ `${styles.menuItem} ${styles.separator}` }></div>
-                  <div className={styles.menuItem}>010</div>
+                </div>
+                <div className={dropdownClasses}>
+                  <NavLink className={styles.dropdownItem} to='/dashboard'>
+                    <i className='fa fa-fw fa-id-card-alt' aria-hidden='true'></i>
+                    <span>Profile</span>
+                  </NavLink>
+                  <NavLink className={styles.dropdownItem} to='/dashboard'>
+                    <i className='fa fa-fw fa-cog' aria-hidden='true'></i>
+                    <span>Settings</span>
+                  </NavLink>
+                  <div className={styles.divider}></div>
+                  <NavLink className={styles.dropdownItem} to='/logout'>
+                    <i className='fa fa-fw fa-power-off' aria-hidden='true'></i>
+                    <span>Log out</span>
+                  </NavLink>
                 </div>
               </div>
             </div>
