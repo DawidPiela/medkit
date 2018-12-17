@@ -37,7 +37,7 @@ class TopNav extends Component {
                     <NavLink to='/'>To the Home Page!</NavLink></div>
                   <div
                     className={`${styles.menuItem} ${styles.menuSeparator}`}></div>
-                  <button onClick={this.dropdownMenuHandler} className={styles.navButton}>
+                  <div onClick={this.dropdownMenuHandler} className={styles.navButton}>
                     <div
                       className={styles.menuItem}><p>{this.props.fullName}</p></div>
                     <div
@@ -47,10 +47,10 @@ class TopNav extends Component {
                     <div className={styles.menuItem}>
                       <img className={styles.userPhoto} src={this.props.userPhoto} alt='user' />
                     </div>
-                  </button>
+                  </div>
                 </div>
-                <div className={dropdownClasses}>
-                  <NavLink className={styles.dropdownItem} to='/dashboard'>
+                <div className={dropdownClasses} onClick={this.dropdownMenuHandler}>
+                  <NavLink className={styles.dropdownItem} to='/dashboard/profile'>
                     <i className='fa fa-fw fa-id-card-alt' aria-hidden='true'></i>
                     <span>Profile</span>
                   </NavLink>
