@@ -25,10 +25,6 @@ class Header extends Component {
                   <li><NavLink to='/'>Doctors</NavLink></li>
                   <li><NavLink to='/'>Contact</NavLink></li>
                   <li><NavLink to='/auth'>To the App!</NavLink></li>
-                  {/* <li>{!this.props.isAuth
-                    ? <NavLink to='/auth'>Log in</NavLink>
-                    : <NavLink to='/logout'>Log out</NavLink>
-                  }</li> */}
                 </ul>
               </div>
             </div>
