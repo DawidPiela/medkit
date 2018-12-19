@@ -1,72 +1,85 @@
 @import '../../../styles/main.scss';
 
 .header {
-  // padding-left: 260px;
   padding-left: 80px;
   z-index: 0;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background: $base-background;
-  border-bottom: 1px solid $base-border-color;
-  box-shadow: 0 0 1px $base-border-color;
-  .container {
-    padding: 0;
-  }
-  .navbar {
-    padding-right: 2%;
-  }
-}
-
-.menuContent {
-  text-align: right;
-  line-height: 73px;
-  @include float-right;
-  @include center-vertical;
+  font-family: $font-family-secondary;
 }
 
 .flexMenu {
-  width: 500px;
+  padding: 0 2% 0 80px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+  margin: 0;
+  vertical-align: baseline;
+  background: $base-background;
+  border-bottom: 1px solid $base-border-color;
+  box-shadow: 0 0 1px $base-border-color;
 }
 
-.menuItem {
-  height: 50px;
-  width: auto;
-  float: right;
-  margin: 0px 10px 0px 0px;
-  display: flex;
+.navContent {
+  flex-direction: column;
+  margin: auto;
   align-items: center;
-  justify-content: center;
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  @media #{$small} {
+    flex-direction: row;
+  }
+  @media #{$phone} {
+    margin: 0 0 0 auto;
+  }
+}
+
+.navItem {
+  border: 1px solid black;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: list-item;
+  padding-left: 4px;
+  padding-right: 4px;
+  line-height: 30px;
   color: $menu-link-color;
   p {
+    line-height: inherit;
     margin: 0;
     display: none;
     @media #{$desktop} {
       display: block;
     }
   }
+  span {
+    display: none;
+    @media #{$desktop} {
+      display: block;
+    }
+  }
+  @media #{$small} {
+    line-height: 73px;
+  }
 }
 
 .menuLink {
   a {
     color: $menu-link-color;
-    font-family: $font-family-secondary;
     font-weight: 400;
     &:hover {
       color: $accent-color-blue;
     }
   }
-}
-
-.menuSeparator {
-  height: 25px;
-  width: auto;
-  border: none;
-  border-left: 1px solid black;
 }
 
 .navButton {

@@ -68,6 +68,9 @@ $desktop-box-width: 260px;
       opacity: 1;
     }
   }
+  #toggle:checked ~ .content {
+    padding-left: 260px;
+  }
   ul {
     left: 29px;
     width: 21.25px;
@@ -143,4 +146,16 @@ $desktop-box-width: 260px;
   display: block;
   background-color: #36354A;
   overflow-x: hidden;
+}
+
+.content {
+  @include base-transition;
+}
+
+.margin80 {
+  margin-left: 80px;
+}
+
+.margin260 {
+  margin-left: 260px;
 }
