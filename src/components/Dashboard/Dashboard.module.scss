@@ -1,13 +1,32 @@
-@import '../../../styles/main.scss';
+@import '../../styles/main.scss';
 
-$mobile-box-width: 80px;
-$desktop-box-width: 260px;
+$mobile-box-width: 55px;
+$desktop-box-width: 230px;
 
-.sideNavigation {
-  z-index: 1;
+.header {
+  z-index: 1000;
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  background: $base-background;
+  border-bottom: 1px solid $base-border-color;
+  box-shadow: 0 0 1px $base-border-color;
+  padding-left: $desktop-box-width;
+}
+
+.sideNav {
+  width: $mobile-box-width;
+  height: 100%;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: $base-background;
+  border-bottom: 1px solid $base-border-color;
+  box-shadow: 0 0 1px $base-border-color;
+  border-right: 1px solid $base-border-color;
   h1 {
     z-index: 3;
     font-size: 20px;
@@ -20,7 +39,7 @@ $desktop-box-width: 260px;
     position: absolute;
   }
   label {
-    left: 29px;
+    left: 16.375px;
     color: #A5A4BF;
     z-index: 3;
     display: inline-block;
@@ -35,19 +54,20 @@ $desktop-box-width: 260px;
     @include invisible;
   }
   #toggle:checked ~ h1 {
-    left: 100px;
+    left: 80px;
     display: inline-block;
     position: absolute;
     margin: 30px 0;
     text-align: center;
   }
   #toggle:checked ~ .sideBox {
-    width: 260px;
+    width: $desktop-box-width;
   }
   #toggle:checked ~ .sideBoxTop {
-    width: 260px;
+    width: $desktop-box-width;
   }
   #toggle:checked ~ ul {
+    left: 16.375px;
     width: 100%;
     display: block;
     position: relative;
@@ -69,10 +89,9 @@ $desktop-box-width: 260px;
     }
   }
   #toggle:checked ~ .content {
-    padding-left: 260px;
+    padding-left: $desktop-box-width;
   }
   ul {
-    left: 29px;
     width: 21.25px;
     z-index: 3;
     position: relative;
@@ -116,22 +135,6 @@ $desktop-box-width: 260px;
   }
 }
 
-.sideBox {
-  @include base-transition;
-  height: 100%;
-  width: $mobile-box-width;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: fixed;
-  float: left;
-  display: block;
-  background-color: $accent-color-navy;
-  overflow-x: hidden;
-}
-
 .sideBoxTop {
   @include base-transition;
   height: 73px;
@@ -148,14 +151,30 @@ $desktop-box-width: 260px;
   overflow-x: hidden;
 }
 
+.sideBox {
+  @include base-transition;
+  height: 100%;
+  width: $mobile-box-width;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  float: left;
+  display: block;
+  background-color: $accent-color-navy;
+  overflow-x: hidden;
+}
+
 .content {
   @include base-transition;
 }
 
-.margin80 {
-  margin-left: 80px;
+.marginMobile {
+  margin-left: $mobile-box-width;
 }
 
-.margin260 {
-  margin-left: 260px;
+.marginDesktop {
+  margin-left: $desktop-box-width;
 }

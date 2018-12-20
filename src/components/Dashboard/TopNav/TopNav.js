@@ -26,41 +26,39 @@ class TopNav extends Component {
     }
 
     return (
-      <header className={styles.header}>
-        <nav className={styles.flexMenu}>
-          <ul className={styles.navContent}>
-            <li className={`${styles.navItem} ${styles.menuLink}`}>
-              <NavLink to='/'>To the Home Page!</NavLink>
-            </li>
-            <li onClick={this.dropdownMenuHandler} className={`${styles.navItem} ${styles.navButton}`}>
-              <p>{this.props.fullName}</p>
-            </li>
-            <li onClick={this.dropdownMenuHandler} className={`${styles.navItem} ${styles.navButton}`}>
-              <span><i
-                className='fa fa-fw fa-angle-down'
-                aria-hidden='true'></i></span>
-            </li>
-            <li onClick={this.dropdownMenuHandler} className={`${styles.navItem} ${styles.navButton}`}>
-              <img className={styles.userPhoto} src={this.props.userPhoto} alt='user' />
-            </li>
-          </ul>
-          <div className={dropdownClasses} onClick={this.dropdownMenuHandler}>
-            <NavLink className={styles.dropdownItem} to='/dashboard/profile'>
-              <i className='fa fa-fw fa-id-card-alt' aria-hidden='true'></i>
-              <span>Profile</span>
-            </NavLink>
-            <NavLink className={styles.dropdownItem} to='/dashboard'>
-              <i className='fa fa-fw fa-cog' aria-hidden='true'></i>
-              <span>Settings</span>
-            </NavLink>
-            <div className={styles.divider}></div>
-            <NavLink className={styles.dropdownItem} to='/logout'>
-              <i className='fa fa-fw fa-power-off' aria-hidden='true'></i>
-              <span>Log out</span>
-            </NavLink>
-          </div>
-        </nav>
-      </header>
+      <nav className={styles.flexMenu}>
+        <ul className={styles.navContent}>
+          <li className={`${styles.navItem} ${styles.menuLink}`}>
+            <NavLink to='/'>To the Home Page!</NavLink>
+          </li>
+          <li onClick={this.dropdownMenuHandler} className={`${styles.navItem} ${styles.navButton}`}>
+            <p>{this.props.fullName}</p>
+          </li>
+          <li onClick={this.dropdownMenuHandler} className={`${styles.navItem} ${styles.navButton}`}>
+            <span><i
+              className='fa fa-fw fa-angle-down'
+              aria-hidden='true'></i></span>
+          </li>
+          <li onClick={this.dropdownMenuHandler} className={`${styles.navItem} ${styles.navButton}`}>
+            <img className={styles.userPhoto} src={this.props.userPhoto} alt='user' />
+          </li>
+        </ul>
+        <div className={dropdownClasses} onClick={this.dropdownMenuHandler}>
+          <NavLink className={styles.dropdownItem} to='/dashboard/profile'>
+            <i className='fa fa-fw fa-id-card-alt' aria-hidden='true'></i>
+            <span>Profile</span>
+          </NavLink>
+          <NavLink className={styles.dropdownItem} to='/dashboard'>
+            <i className='fa fa-fw fa-cog' aria-hidden='true'></i>
+            <span>Settings</span>
+          </NavLink>
+          <div className={styles.divider}></div>
+          <NavLink className={styles.dropdownItem} to='/logout'>
+            <i className='fa fa-fw fa-power-off' aria-hidden='true'></i>
+            <span>Log out</span>
+          </NavLink>
+        </div>
+      </nav>
     )
   }
 }
