@@ -44,11 +44,11 @@ class TopNav extends Component {
           </li>
         </ul>
         <div className={dropdownClasses} onClick={this.dropdownMenuHandler}>
-          <NavLink className={styles.dropdownItem} to='/dashboard/profile'>
+          <NavLink className={styles.dropdownItem} to='/panel/profile'>
             <i className='fa fa-fw fa-id-card-alt' aria-hidden='true'></i>
             <span>Profile</span>
           </NavLink>
-          <NavLink className={styles.dropdownItem} to='/dashboard'>
+          <NavLink className={styles.dropdownItem} to='/panel/settings'>
             <i className='fa fa-fw fa-cog' aria-hidden='true'></i>
             <span>Settings</span>
           </NavLink>

@@ -14,7 +14,7 @@ class Header extends Component {
           <div className={styles.container}>
             <div className={styles.navbar}>
               <div className={styles.navLogo}>
-                <a href='a'><img src={Logo} alt='logotype' /></a>
+                <a href='/'><img src={Logo} alt='logotype' /></a>
               </div>
               <div className={styles.menuContent}>
                 <label htmlFor={styles.toggle}>&#9776;</label>

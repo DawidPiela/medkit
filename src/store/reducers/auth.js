@@ -6,7 +6,7 @@ const initialState = {
   userId: null,
   error: null,
   loading: false,
-  authRedirectPath: '/dashboard'
+  authRedirectPath: '/panel/dashboard'
 };
 
 const authStart = (state, action) => {

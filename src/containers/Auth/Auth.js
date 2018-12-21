@@ -185,7 +185,7 @@ const mapDispatchToProps = dispatch => {
     onAuth: (email, password, isSignup) =>
       dispatch(actions.auth(email, password, isSignup)),
     onSetAuthRedirectPath: () =>
-      dispatch(actions.setAuthRedirectPath('/dashboard'))
+      dispatch(actions.setAuthRedirectPath('/panel/dashboard'))
   };
 };
 

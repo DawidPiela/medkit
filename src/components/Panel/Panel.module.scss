@@ -178,3 +178,9 @@ $desktop-box-width: 230px;
 .marginDesktop {
   margin-left: $desktop-box-width;
 }
+
+.active {
+  span > i {
+      color: $accent-color-purple;
+  }
+}

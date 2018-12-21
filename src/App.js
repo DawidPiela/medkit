@@ -6,7 +6,7 @@ import HomePage from './components/HomePage/HomePage';
 import Auth from './containers/Auth/Auth';
 import Layout from './containers/Layout/Layout';
 import Logout from './containers/Auth/Logout/Logout';
-import Dashboard from './components/Dashboard/Dashboard';
+import Panel from './components/Panel/Panel';
 import * as actions from './store/actions/index';
 
 class App extends Component {
@@ -27,16 +27,15 @@ class App extends Component {
 
     if (this.props.isAuthenticated) {
       routes = (
-        <Layout xd='jdjdj'>
+        <Layout>
           <Switch>
             <Route path='/logout' component={Logout} />
             <Route path='/auth' component={Auth} />
-            <Route path='/dashboard' component={Dashboard} />
+            <Route path='/panel/' component={Panel} />
             <Route path='/' exact component={HomePage} isAuth={this.props.isAuthenticated} />
             <Redirect to='/' />
           </Switch>
         </Layout>
-
       )
     }
 
