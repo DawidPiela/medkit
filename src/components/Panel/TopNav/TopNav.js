@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import styles from './TopNav.module.scss';
+import axios from '../../../axios-instance';
+import * as actions from '../../../store/actions/index';
 
 class TopNav extends Component {
   state = {
-    click: false
+    click: false,
+  }
+
+  componentDidMount() {
+    this.props.onInitUserData()
   }
 
   dropdownMenuHandler = () => {
@@ -17,6 +24,13 @@ class TopNav extends Component {
   }
 
   render() {
+    // const user = { ...this.props.userData }
+    // const user2 = { ...user.vbTb52IfTGYNMhtbFqhDTPNTRBa2 }
+    // const user3 = user2.firstName
+    // console.log(user3)
+    // this.setState({
+    //   firstName: user3
+    // })
     let dropdownClasses = `${styles.dropdownMenu} ${styles.dontShow}`
 
     if (this.state.click) {
@@ -63,4 +77,16 @@ class TopNav extends Component {
   }
 }
 
-export default TopNav
+const mapStateToProps = state => {
+  return {
+    userData: state.user.userData
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onInitUserData: () => dispatch(actions.initUserData())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopNav, axios);

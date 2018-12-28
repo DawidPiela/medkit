@@ -9,22 +9,24 @@ import './index.module.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import authReducer from './store/reducers/auth';
+import userReducer from './store/reducers/user';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-    auth: authReducer
+  auth: authReducer,
+  user: userReducer
 })
 
 const store = createStore(rootReducer, composeEnhancers(
-    applyMiddleware(thunk)
+  applyMiddleware(thunk)
 ));
 const app = (
-    <Provider store={store}>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-    </Provider>
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
 )
 
 ReactDOM.render(app, document.getElementById('root'));

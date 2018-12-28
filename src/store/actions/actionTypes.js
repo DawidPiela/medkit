@@ -4,3 +4,6 @@ export const AUTH_FAIL = 'AUTH_FAIL';
 export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 
 export const SET_AUTH_REDIRECT_PATH = 'SET_AUTH_REDIRECT_PATH';
+
+export const SET_USER_DATA = 'SET_USER_DATA';
+export const FETCH_USER_DATA_FAILED = 'FETCH_USER_DATA_FAILED'
