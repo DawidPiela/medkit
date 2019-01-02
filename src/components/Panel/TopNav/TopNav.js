@@ -5,10 +5,11 @@ import { connect } from 'react-redux';
 import styles from './TopNav.module.scss';
 import axios from '../../../axios-instance';
 import * as actions from '../../../store/actions/index';
+import UserName from './UserName';
 
 class TopNav extends Component {
   state = {
-    click: false,
+    click: false
   }
 
   componentDidMount() {
@@ -31,6 +32,11 @@ class TopNav extends Component {
     // this.setState({
     //   firstName: user3
     // })
+    // setTimeout(() => {
+    //   const user = this.props.userData.vbTb52IfTGYNMhtbFqhDTPNTRBa2.firstName
+    //   console.log(this.props.userData.vbTb52IfTGYNMhtbFqhDTPNTRBa2.firstName)
+    // }, 3000)
+    // console.log(this.props.userData)
     let dropdownClasses = `${styles.dropdownMenu} ${styles.dontShow}`
 
     if (this.state.click) {
@@ -46,7 +52,8 @@ class TopNav extends Component {
             <NavLink to='/'>To the Home Page!</NavLink>
           </li>
           <li onClick={this.dropdownMenuHandler} className={`${styles.navItem} ${styles.navButton}`}>
-            <p>{this.props.fullName}</p>
+            {/* <p>{this.props.fullName}</p> */}
+            <UserName />
           </li>
           <li onClick={this.dropdownMenuHandler} className={`${styles.navItem} ${styles.navButton}`}>
             <span><i
