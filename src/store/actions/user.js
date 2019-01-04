@@ -14,9 +14,10 @@ export const fetchUserDataFailed = () => {
   }
 }
 
-export const initUserData = () => {
+export const initUserData = (token, userId) => {
   return dispatch => {
-    axios.get('https://medkit-react-app.firebaseio.com/users.json')
+    const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"'
+    axios.get('https://medkit-react-app.firebaseio.com/users.json' + queryParams)
       .then(response => {
         dispatch(setUserData(response.data))
         console.log('axios responded')
