@@ -53,7 +53,6 @@ export const auth = (email, password, isSignup) => {
       url =
         'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyC41UAUI_F_WXASca2U8-Q7Fz36GP_W3sE';
     }
-    let id
     axios
       .post(url, authData)
       .then(response => {
@@ -63,22 +62,25 @@ export const auth = (email, password, isSignup) => {
         localStorage.setItem('token', response.data.idToken);
         localStorage.setItem('expirationDate', expirationDate);
         localStorage.setItem('userId', response.data.localId);
-        id = response.data.localId
-        console.log(id)
+        const id = response.data.localId
+        // console.log(response.data.registered)
+        if (response.data.registered) {
+          console.log(response.data.registered)
+        } else {
+          // axios.patch('https://medkit-react-app.firebaseio.com/test.json', { [id]: { name: 'jan' } })
+          //   .then(response => {
+          //     console.log(response)
+          //   })
+          //   .catch(error => {
+          //     console.log(error)
+          //   })
+        }
         dispatch(authSuccess(response.data.idToken, response.data.localId));
         dispatch(checkAuthTimeout(response.data.expiresIn));
       })
       .catch(err => {
         dispatch(authFail(err.response.data.error));
       });
-    console.log(id)
-    axios.put('https://medkit-react-app.firebaseio.com/test.json', {[id]: {name: 'jan'}})
-      .then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        console.log(error)
-      })
   };
 };
 

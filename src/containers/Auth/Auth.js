@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 import styles from './Auth.module.scss';
 import Header from '../../components/HomePage/Header/Header';
@@ -22,7 +23,9 @@ class Auth extends Component {
   };
 
   componentDidMount() {
-    this.props.onSetAuthRedirectPath();
+    if (this.props.authRedirectPath !== '/') {
+      this.props.onSetAuthRedirectPath();
+    }
   }
 
   checkValidity(value, rules) {
@@ -79,6 +82,19 @@ class Auth extends Component {
       this.state.controls.password.value,
       this.state.isSignup
     );
+    if (this.state.isSignup) {
+      // const id = localStorage.getItem('userId')
+      // axios.patch('https://medkit-react-app.firebaseio.com/test.json', { [id]: { name: 'jan' } })
+      //   .then(response => {
+      //     console.log(response)
+      //   })
+      //   .catch(error => {
+      //     console.log(error)
+      //   })
+    }
+    setTimeout(() => {
+      console.log(this.state.userId)
+    }, 3000);
   };
 
   switchAuthModeContentHandler = () => {
@@ -153,19 +169,21 @@ class Auth extends Component {
       <div>
         <Header />
         {authRedirect}
-        <form onSubmit={this.submitHandler}>
-        {errorMessage}
-          <p>
-            {this.state.isSignup
-              ? 'Please complete the form below to create your account.'
-              : 'Welcome back! Please log in to your account.'}
-          </p>
-          {form}
-          <Button btnType='Success'>SUBMIT</Button>
+        <div className={styles.form}>
+          <form onSubmit={this.submitHandler}>
+            {errorMessage}
+            <p>
+              {this.state.isSignup
+                ? 'Please complete the form below to create your account.'
+                : 'Welcome back! Please log in to your account.'}
+            </p>
+            {form}
+            <Button btnType='Success'>SUBMIT</Button>
+          </form>
           <Button clicked={this.switchAuthModeContentHandler} btnType='Danger'>
             SWITCH TO {this.state.isSignup ? 'LOG IN' : 'SIGN UP'}
           </Button>
-        </form>
+        </div>
       </div>
     );
   }
@@ -176,7 +194,8 @@ const mapStateToProps = state => {
     loading: state.auth.loading,
     error: state.auth.error,
     isAuthenticated: state.auth.token !== null,
-    authRedirectPath: state.auth.authRedirectPath
+    authRedirectPath: state.auth.authRedirectPath,
+    userId: state.auth.userId
   };
 };
 
