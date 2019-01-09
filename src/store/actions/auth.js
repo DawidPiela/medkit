@@ -39,7 +39,13 @@ export const checkAuthTimeout = expirationTime => {
   };
 };
 
-export const auth = (email, password, isSignup) => {
+export const auth = (email, password, isSignup, firstName, lastName) => {
+  // if (typeof firstName === 'undefined') {
+  //   firstName = '';
+  // }
+  // if (typeof lastName === 'undefined') {
+  //   lastName = '';
+  // }
   return dispatch => {
     dispatch(authStart());
     const authData = {
@@ -63,17 +69,22 @@ export const auth = (email, password, isSignup) => {
         localStorage.setItem('expirationDate', expirationDate);
         localStorage.setItem('userId', response.data.localId);
         const id = response.data.localId
-        // console.log(response.data.registered)
         if (response.data.registered) {
-          console.log(response.data.registered)
         } else {
-          // axios.patch('https://medkit-react-app.firebaseio.com/test.json', { [id]: { name: 'jan' } })
-          //   .then(response => {
-          //     console.log(response)
-          //   })
-          //   .catch(error => {
-          //     console.log(error)
-          //   })
+          axios.patch('https://medkit-react-app.firebaseio.com/users.json',
+            {
+              [id]:
+              {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                userId: id
+              }
+            })
+            .then(response => {
+            })
+            .catch(error => {
+            })
         }
         dispatch(authSuccess(response.data.idToken, response.data.localId));
         dispatch(checkAuthTimeout(response.data.expiresIn));

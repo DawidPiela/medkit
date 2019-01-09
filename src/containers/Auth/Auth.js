@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import axios from 'axios';
 
 import styles from './Auth.module.scss';
 import Header from '../../components/HomePage/Header/Header';
@@ -77,24 +76,24 @@ class Auth extends Component {
 
   submitHandler = event => {
     event.preventDefault();
+    console.log(
+      this.state.controls.email.value,
+      this.state.controls.password.value,
+      this.state.isSignup,
+      this.state.controls.firstName.value,
+      this.state.controls.lastName.value
+    )
+    const submitparams = {
+      firstName: this.state.controls.firstName.value,
+      lastName: this.state.controls.lastName.value
+    }
     this.props.onAuth(
       this.state.controls.email.value,
       this.state.controls.password.value,
-      this.state.isSignup
+      this.state.isSignup,
+      submitparams.firstName,
+      submitparams.lastName
     );
-    if (this.state.isSignup) {
-      // const id = localStorage.getItem('userId')
-      // axios.patch('https://medkit-react-app.firebaseio.com/test.json', { [id]: { name: 'jan' } })
-      //   .then(response => {
-      //     console.log(response)
-      //   })
-      //   .catch(error => {
-      //     console.log(error)
-      //   })
-    }
-    setTimeout(() => {
-      console.log(this.state.userId)
-    }, 3000);
   };
 
   switchAuthModeContentHandler = () => {
@@ -201,8 +200,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAuth: (email, password, isSignup) =>
-      dispatch(actions.auth(email, password, isSignup)),
+    onAuth: (email, password, isSignup, firstName, lastName) =>
+      dispatch(actions.auth(email, password, isSignup, firstName, lastName)),
     onSetAuthRedirectPath: () =>
       dispatch(actions.setAuthRedirectPath('/panel/dashboard'))
   };

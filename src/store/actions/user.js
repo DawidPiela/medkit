@@ -20,9 +20,11 @@ export const initUserData = (token, userId) => {
     axios.get('https://medkit-react-app.firebaseio.com/users.json' + queryParams)
       .then(response => {
         dispatch(setUserData(response.data))
+        console.log(response.data)
       })
-      .catch(error => {
-        dispatch(fetchUserDataFailed())
-      })
+    // .catch(error => {
+    //   dispatch(fetchUserDataFailed())
+    //   console.log(error)
+    // })
   }
 }

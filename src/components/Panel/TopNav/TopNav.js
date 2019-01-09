@@ -33,7 +33,7 @@ class TopNav extends Component {
             <NavLink to='/'>To the Home Page!</NavLink>
           </li>
           <li onClick={this.dropdownMenuHandler} className={`${styles.navItem} ${styles.navButton}`}>
-            <UserName />
+            <UserName name='jan' />
           </li>
           <li onClick={this.dropdownMenuHandler} className={`${styles.navItem} ${styles.navButton}`}>
             <span><i
