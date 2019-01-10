@@ -76,13 +76,6 @@ class Auth extends Component {
 
   submitHandler = event => {
     event.preventDefault();
-    console.log(
-      this.state.controls.email.value,
-      this.state.controls.password.value,
-      this.state.isSignup,
-      this.state.controls.firstName.value,
-      this.state.controls.lastName.value
-    )
     const submitparams = {
       firstName: this.state.controls.firstName.value,
       lastName: this.state.controls.lastName.value

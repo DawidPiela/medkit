@@ -6,35 +6,15 @@ import * as actions from '../../../store/actions/index';
 
 class UserName extends Component {
   componentDidMount() {
-    setTimeout(() => {
-      this.props.onInitUserData(this.props.token, this.props.userId)
-    }, 1000);
+    this.props.onInitUserData(this.props.token, this.props.userId)
   }
-  /////////////////
 
-  // setName = new Promise((resolve, reject) => {
-  //   console.log(this.props.name)
-  //   setTimeout(() => {
-  //     resolve('jan')
-  //   }, 3000);
-  // })
-
-
-  /////////////////
   render() {
     const userData = { ...this.props.userData }
     const user = { ...userData[this.props.userId] }
-    /////////////////
-    // let firstname
 
-    // this.setName.then((name) => {
-    //   console.log(this.props.name, name)
-    // })
-
-    /////////////////
     return (
       <p>{user.firstName} {user.lastName}</p>
-      // <p>{this.props.name}</p>
     )
   }
 }

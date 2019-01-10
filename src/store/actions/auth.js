@@ -40,12 +40,6 @@ export const checkAuthTimeout = expirationTime => {
 };
 
 export const auth = (email, password, isSignup, firstName, lastName) => {
-  // if (typeof firstName === 'undefined') {
-  //   firstName = '';
-  // }
-  // if (typeof lastName === 'undefined') {
-  //   lastName = '';
-  // }
   return dispatch => {
     dispatch(authStart());
     const authData = {
@@ -86,7 +80,9 @@ export const auth = (email, password, isSignup, firstName, lastName) => {
             .catch(error => {
             })
         }
-        dispatch(authSuccess(response.data.idToken, response.data.localId));
+        setTimeout(() => {
+          dispatch(authSuccess(response.data.idToken, response.data.localId));
+        }, 1000);
         dispatch(checkAuthTimeout(response.data.expiresIn));
       })
       .catch(err => {
