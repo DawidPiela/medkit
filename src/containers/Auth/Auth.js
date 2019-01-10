@@ -76,16 +76,20 @@ class Auth extends Component {
 
   submitHandler = event => {
     event.preventDefault();
-    const submitparams = {
-      firstName: this.state.controls.firstName.value,
-      lastName: this.state.controls.lastName.value
+
+    const submitParams = {
+      firstName: this.state.controls.firstName,
+      lastName: this.state.controls.lastName
     }
+
+    let returnNullIfUndefined = (submitParam = '') => submitParam.value
+
     this.props.onAuth(
       this.state.controls.email.value,
       this.state.controls.password.value,
       this.state.isSignup,
-      submitparams.firstName,
-      submitparams.lastName
+      returnNullIfUndefined(submitParams.firstName),
+      returnNullIfUndefined(submitParams.lastName)
     );
   };
 

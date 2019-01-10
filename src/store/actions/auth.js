@@ -63,7 +63,12 @@ export const auth = (email, password, isSignup, firstName, lastName) => {
         localStorage.setItem('expirationDate', expirationDate);
         localStorage.setItem('userId', response.data.localId);
         const id = response.data.localId
+        const token = response.data.idToken
+        const localId = response.data.localId
+        const expiresIn = response.data.expiresIn
         if (response.data.registered) {
+          dispatch(authSuccess(token, localId));
+          dispatch(checkAuthTimeout(expiresIn));
         } else {
           axios.patch('https://medkit-react-app.firebaseio.com/users.json',
             {
@@ -76,14 +81,12 @@ export const auth = (email, password, isSignup, firstName, lastName) => {
               }
             })
             .then(response => {
+              dispatch(authSuccess(token, localId));
+              dispatch(checkAuthTimeout(expiresIn));
             })
             .catch(error => {
             })
         }
-        setTimeout(() => {
-          dispatch(authSuccess(response.data.idToken, response.data.localId));
-        }, 1000);
-        dispatch(checkAuthTimeout(response.data.expiresIn));
       })
       .catch(err => {
         dispatch(authFail(err.response.data.error));
