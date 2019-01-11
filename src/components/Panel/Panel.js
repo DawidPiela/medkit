@@ -55,7 +55,7 @@ class Panel extends Component {
             <li><NavLink
               activeClassName={styles.active} to='/panel/calendar'><span><i
                 className='fa fa-fw fa-calendar-alt'
-                aria-hidden='true'></i></span><p>Tests Calendar</p></NavLink></li>
+                aria-hidden='true'></i></span><p>Appointments</p></NavLink></li>
             <li><NavLink
               activeClassName={styles.active} to='/panel/prescriptions'><span><i
                 className='fa fa-fw fa-prescription-bottle-alt'

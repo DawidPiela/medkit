@@ -44,7 +44,7 @@ $desktop-box-width: 230px;
     z-index: 3;
     display: inline-block;
     position: relative;
-    margin: 30px 0 0;
+    margin: 26px 0 0;
     width: 22px;
     font-size: 22px;
     cursor: pointer;
@@ -57,7 +57,7 @@ $desktop-box-width: 230px;
     left: 80px;
     display: inline-block;
     position: absolute;
-    margin: 30px 0;
+    margin: 26px 0;
     text-align: center;
   }
   #toggle:checked ~ .sideBox {
@@ -71,7 +71,7 @@ $desktop-box-width: 230px;
     width: 100%;
     display: block;
     position: relative;
-    margin: 30px auto;
+    margin: 26px auto;
     padding: 0;
     li {
       width: 130px;
@@ -95,7 +95,7 @@ $desktop-box-width: 230px;
     width: 21.25px;
     z-index: 3;
     position: relative;
-    margin: 30px auto;
+    margin: 26px auto;
     padding: 0;
   }
   li {
