@@ -8,3 +8,7 @@ export {
 export {
   initUserData
 } from './user';
+
+export {
+  initAppointmentData
+} from './appointment';

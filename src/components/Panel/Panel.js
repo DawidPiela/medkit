@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 
 import TopNav from './TopNav/TopNav';
-import Calendar from './Calendar/Calendar';
+import Appointments from './Appointments/Appointments';
 import Dashboard from './Dashboard/Dashboard';
 import Laboratory from './Laboratory/Laboratory';
 import Prescriptions from './Prescriptions/Prescriptions';
@@ -53,7 +53,7 @@ class Panel extends Component {
                 className='fa fa-fw fa-vial'
                 aria-hidden='true'></i></span><p>Laboratory</p></NavLink></li>
             <li><NavLink
-              activeClassName={styles.active} to='/panel/calendar'><span><i
+              activeClassName={styles.active} to='/panel/appointments'><span><i
                 className='fa fa-fw fa-calendar-alt'
                 aria-hidden='true'></i></span><p>Appointments</p></NavLink></li>
             <li><NavLink
@@ -73,7 +73,7 @@ class Panel extends Component {
           <div className={styles.sideBox}></div>
         </header>
         <div className={contentClasses}>
-          <Route path='/panel/calendar' component={Calendar} />
+          <Route path='/panel/appointments' component={Appointments} />
           <Route path='/panel/dashboard' component={Dashboard} />
           <Route path='/panel/laboratory' component={Laboratory} />
           <Route path='/panel/prescriptions' component={Prescriptions} />

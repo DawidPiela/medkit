@@ -13,6 +13,11 @@
     width: 80%;
 }
 
+.Button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
 .Success {
     color: white;
 }

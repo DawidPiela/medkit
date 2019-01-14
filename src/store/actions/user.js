@@ -17,9 +17,12 @@ export const fetchUserDataFailed = () => {
 export const initUserData = (token, userId) => {
   return dispatch => {
     const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"'
-    axios.get('https://medkit-react-app.firebaseio.com/users.json' + queryParams)
+    axios.get('users.json' + queryParams)
       .then(response => {
         dispatch(setUserData(response.data))
+      })
+      .catch(err => {
+        dispatch(fetchUserDataFailed())
       })
   }
 }
