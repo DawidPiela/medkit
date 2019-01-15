@@ -10,11 +10,23 @@ class AppointmentList extends Component {
     this.props.onFetchAppointmentData(this.props.token, this.props.userId)
   }
   render() {
-    let appointments = this.props.appointmentsListData.map(appointment => (
-      <Appointment />
-    ))
+    // let appointments = this.props.appointmentsListData.map(appointment => (
+    //   <Appointment />
+    // ))
+    let temp = { ...this.props.appointmentsListData }
+    let temp2 = [temp].userId
+    if (Object.keys(temp).length === 0) {
+      console.log('empty')
+      temp = 'empty'
+    } else {
+      temp = this.props.appointmentsListData.map(app => (
+        <Appointment
+          key={app.id}
+          userId={app.userId} />
+      ))
+    }
     return (
-      <p>{appointments}</p>
+      <p>{temp}</p>
     )
   }
 }
