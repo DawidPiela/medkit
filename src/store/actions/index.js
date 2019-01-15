@@ -10,5 +10,6 @@ export {
 } from './user';
 
 export {
-  initAppointmentData
+  initAppointmentData,
+  fetchAppointmentData
 } from './appointment';

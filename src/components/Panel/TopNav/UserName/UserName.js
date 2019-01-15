@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import axios from '../../../axios-instance';
-import * as actions from '../../../store/actions/index';
+import axios from '../../../../axios-instance';
+import * as actions from '../../../../store/actions/index';
 
 class UserName extends Component {
   componentDidMount() {

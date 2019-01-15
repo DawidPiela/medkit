@@ -1,33 +1,57 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axios-instance';
-import { fetchUserDataFailed } from './user';
 
-export const setAppointmentData = (appointmentData) => {
+export const postAppointmentData = (appointmentData) => {
   return {
-    type: actionTypes.SET_APPOINTMENT_DATA,
+    type: actionTypes.POST_APPOINTMENT_DATA,
     appointmentData: appointmentData
   }
 }
 
-export const setAppointmentDataFailed = () => {
+export const postAppointmentDataFailed = () => {
   return {
-    type: actionTypes.SET_APPOINTMENT_DATA_FAILED
+    type: actionTypes.POST_APPOINTMENT_DATA_FAILED
   }
 }
 
-export const initAppointmentData = (token, userId, appointmentData) => {
+export const initAppointmentData = (userId, appointmentData) => {
   return dispatch => {
     const axiosData = {
       appointmentData,
       userId: userId
     }
-    const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"'
     axios.post('appointments.json', axiosData)
+      .then(response => {
+        dispatch(postAppointmentData(response.data))
+      })
+      .catch(err => {
+        dispatch(postAppointmentDataFailed())
+      })
+  }
+}
+
+export const setAppointmentData = (appointmentsListData) => {
+  return {
+    type: actionTypes.SET_APPOINTMENT_DATA,
+    appointmentsListData: appointmentsListData
+  }
+}
+
+export const fetchAppointmentDataFailed = () => {
+  return {
+    type: actionTypes.FETCH_APPOINTMENT_DATA_FAILED
+  }
+}
+
+export const fetchAppointmentData = (token, userId) => {
+  return dispatch => {
+    const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"'
+    axios.get('/appointments.json' + queryParams)
       .then(response => {
         dispatch(setAppointmentData(response.data))
       })
       .catch(err => {
-        dispatch(fetchUserDataFailed())
+        dispatch(fetchAppointmentDataFailed())
       })
   }
 }

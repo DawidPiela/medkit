@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import styles from './TopNav.module.scss';
-import UserName from './UserName';
+import UserName from './UserName/UserName';
 
 class TopNav extends Component {
   state = {
