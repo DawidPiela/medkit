@@ -13,9 +13,9 @@ class Appointments extends Component {
         <div className={styles.box}>
           <AppointmentList />
         </div>
-        <div className={styles.box}>
+        {/* <div className={styles.box}>
           <AppointmentForm />
-        </div>
+        </div> */}
       </>
     )
   }
