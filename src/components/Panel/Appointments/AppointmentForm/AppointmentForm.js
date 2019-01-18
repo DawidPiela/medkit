@@ -82,16 +82,8 @@ class AppointmentForm extends Component {
 
     this.props.onInitAppointmentData(
       this.props.userId,
-      appointmentData
-    )
-
-    console.log(
-      this.state.controls.firstName.value,
-      this.state.controls.lastName.value,
-      this.state.controls.email.value,
-      this.state.controls.message.value,
-      this.state.date,
-      this.state.controls.selectDoctors.value
+      appointmentData,
+      this.props.token
     )
   };
 
@@ -131,14 +123,15 @@ class AppointmentForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    userId: state.auth.userId
+    userId: state.auth.userId,
+    token: state.auth.token
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onInitAppointmentData: (userId, appointmentData) =>
-      dispatch(actions.initAppointmentData(userId, appointmentData))
+    onInitAppointmentData: (userId, appointmentData, token) =>
+      dispatch(actions.initAppointmentData(userId, appointmentData, token))
   }
 }
 

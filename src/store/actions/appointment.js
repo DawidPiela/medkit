@@ -14,7 +14,7 @@ export const postAppointmentDataFailed = () => {
   }
 }
 
-export const initAppointmentData = (userId, appointmentData) => {
+export const initAppointmentData = (userId, appointmentData, token) => {
   return dispatch => {
     const axiosData = {
       appointmentData,
@@ -23,10 +23,17 @@ export const initAppointmentData = (userId, appointmentData) => {
     axios.post('appointments.json', axiosData)
       .then(response => {
         dispatch(postAppointmentData(response.data))
+        dispatch(fetchAppointmentData(token, userId))
       })
       .catch(err => {
         dispatch(postAppointmentDataFailed())
       })
+  }
+}
+
+export const fetchAppointmentDataStart = () => {
+  return {
+    type: actionTypes.FETCH_APPOINTMENT_DATA_START
   }
 }
 
@@ -45,10 +52,18 @@ export const fetchAppointmentDataFailed = () => {
 
 export const fetchAppointmentData = (token, userId) => {
   return dispatch => {
+    dispatch(fetchAppointmentDataStart())
     const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"'
     axios.get('/appointments.json' + queryParams)
       .then(response => {
-        dispatch(setAppointmentData(response.data))
+        const fetchedAppointments = []
+        for (let key in response.data) {
+          fetchedAppointments.push({
+            ...response.data[key],
+            id: key
+          })
+        }
+        dispatch(setAppointmentData(fetchedAppointments))
       })
       .catch(err => {
         dispatch(fetchAppointmentDataFailed())
