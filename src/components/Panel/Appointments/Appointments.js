@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import styles from './Appointments.module.scss';
 import AppointmentList from './AppointmentList/AppointmentList';
-import AppointmentForm from './AppointmentForm/AppointmentForm';
+// import AppointmentForm from './AppointmentForm/AppointmentForm';
 
 class Appointments extends Component {
 

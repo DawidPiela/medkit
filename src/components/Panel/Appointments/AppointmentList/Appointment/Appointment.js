@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class Appointment extends Component {
   render() {
-
     const appointments = []
 
     for (let dataName in this.props.appointmentData) {
