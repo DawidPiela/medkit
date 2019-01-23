@@ -13,3 +13,8 @@ export {
   initAppointmentData,
   fetchAppointmentData
 } from './appointment';
+
+export {
+  initPhotoUpload,
+  setPhotoUrl
+} from './photo';

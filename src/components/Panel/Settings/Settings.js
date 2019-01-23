@@ -1,78 +1,63 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import firebase from '../../../firebase';
-import photo from '../../../assets/images/doctor_1.jpg';
+import styles from './Settings.module.scss'
+import * as actions from '../../../store/actions/index';
 
 class Settings extends Component {
 
   componentDidMount() {
-
+    this.props.onSetPhotoUrl(null, this.props.token, this.props.userId)
   }
 
   onPhotoUpload = () => {
-    let file = document.getElementById('input').files[0]
-    let storage = firebase.storage()
-    let storageRef = storage.ref()
-    let uniqueFileName = new Date().getTime().toString()
-    let uploadTask = storageRef.child('images/' + uniqueFileName).put(file)
+    let file = document.getElementById('settings_component_input').files[0]
 
-    uploadTask.on('state_changed', () => {
-      uploadTask.snapshot.ref.getDownloadURL()
-        .then((downloadURL) => {
-          console.log('File available at', downloadURL);
-        });
-    });
-
+    this.props.onInitPhotoUpload(file, this.props.token, this.props.userId)
   }
 
   render() {
+    let photoCircle
+
+    if (!this.props.photoUrl || this.props.photoUrl === undefined) {
+      photoCircle = (
+        <div className={styles.userPhotoIcon}>
+          <i
+            className='fas fa-fw fa-user'
+            aria-hidden='true'></i>
+        </div>
+
+      )
+    } else {
+      photoCircle = (
+        <img className={styles.userPhoto} src={this.props.photoUrl} alt="user"></img>
+      )
+    }
 
     return (
       <>
-        <input type="file" id="input"></input>
+        <input type="file" id="settings_component_input"></input>
         <button onClick={this.onPhotoUpload}>Upload photo</button>
+        {photoCircle}
       </>
     )
   }
 }
 
-export default Settings
+const mapStateToProps = state => {
+  return {
+    photoUrl: state.photo.photoUrl,
+    userId: state.auth.userId,
+    token: state.auth.token
+  }
+}
 
+const mapDispatchToProps = dispatch => {
+  return {
+    onInitPhotoUpload: (photoFile, token, userId) =>
+      dispatch(actions.initPhotoUpload(photoFile, token, userId)),
+    onSetPhotoUrl: (photoUrl, token, userId) => dispatch(actions.setPhotoUrl(photoUrl, token, userId))
+  }
+}
 
-
-
-
-
-// import React, { Component } from 'react';
-
-// import firebase from '../../../firebase';
-// import styles from './Settings.module.scss'
-
-// class Settings extends Component {
-//   state = {
-//     imageUrl: ''
-//   }
-
-//   componentDidMount() {
-//     let storage = firebase.storage()
-//     let storageRef = storage.ref()
-//     let imageRef = storageRef.child('doctor_4.jpg')
-//     imageRef.getDownloadURL()
-//       .then((url) => {
-//         this.setState({
-//           imageUrl: url
-//         })
-//       })
-//   }
-
-//   render() {
-
-//     return (
-//       <>
-//         <img className={styles.userPhoto} src={this.state.imageUrl} alt="user"></img>
-//       </>
-//     )
-//   }
-// }
-
-// export default Settings
+export default connect(mapStateToProps, mapDispatchToProps)(Settings)
