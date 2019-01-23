@@ -6,7 +6,8 @@ export {
 } from './auth';
 
 export {
-  initUserData
+  initUserData,
+  patchUserData
 } from './user';
 
 export {
