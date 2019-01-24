@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
+import LaboratoryForm from './LaboratoryForm/LaboratoryForm';
+
 class Laboratory extends Component {
   render() {
     return (
       <>
-        <p>you are in Laboratory Component</p>
+        <LaboratoryForm />
       </>
     )
   }

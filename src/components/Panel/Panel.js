@@ -8,7 +8,6 @@ import Laboratory from './Laboratory/Laboratory';
 import Prescriptions from './Prescriptions/Prescriptions';
 import Profile from './Profile/Profile';
 import Settings from './Settings/Settings';
-import photo from '../../assets/images/doctor_4.jpg';
 import styles from './Panel.module.scss';
 
 class Panel extends Component {
@@ -37,7 +36,7 @@ class Panel extends Component {
     return (
       <>
         <header className={styles.header}>
-          <TopNav fullName='John Doe' userPhoto={photo} />
+          <TopNav />
         </header>
         <header className={styles.sideNav}>
           <label htmlFor={styles.toggle}>&#9776;</label>

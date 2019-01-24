@@ -27,10 +27,14 @@ const setPhotoUrl = (state, action) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.UPLOAD_PHOTO_START: return uploadPhotoStart(state, action)
-    case actionTypes.UPLOAD_PHOTO: return uploadPhoto(state, action)
-    case actionTypes.SET_PHOTO: return setPhoto(state, action)
-    case actionTypes.SET_PHOTO_URL: return setPhotoUrl(state, action)
+    case actionTypes.UPLOAD_PHOTO_START:
+      return uploadPhotoStart(state, action)
+    case actionTypes.UPLOAD_PHOTO:
+      return uploadPhoto(state, action)
+    case actionTypes.SET_PHOTO:
+      return setPhoto(state, action)
+    case actionTypes.SET_PHOTO_URL:
+      return setPhotoUrl(state, action)
     default: return state;
   }
 }

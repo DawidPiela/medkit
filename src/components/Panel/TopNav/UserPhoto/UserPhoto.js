@@ -1,31 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import styles from './SettingsPhoto.module.scss'
 import * as actions from '../../../../store/actions/index';
+import styles from './UserPhoto.module.scss';
 
-class Settings extends Component {
-  state = {
-    inputIsValid: false
-  }
-
+class UserPhoto extends Component {
   componentDidMount() {
     this.props.onSetPhotoUrl(null, this.props.token, this.props.userId)
-  }
-
-  onPhotoUpload = () => {
-    let file = document.getElementById('settings_component_input').files[0]
-
-    this.props.onInitPhotoUpload(file, this.props.token, this.props.userId)
-    this.setState({
-      inputIsValid: false
-    })
-  }
-
-  fileInputChangedHandler = (event) => {
-    this.setState({
-      inputIsValid: true
-    })
   }
 
   render() {
@@ -43,20 +24,8 @@ class Settings extends Component {
         <img className={styles.userPhoto} src={this.props.photoUrl} alt="user"></img>
       )
     }
-
     return (
-      <>
-        <input
-          type="file"
-          id="settings_component_input"
-          onChange={event => this.fileInputChangedHandler(event)}></input>
-        <button
-          onClick={this.onPhotoUpload}
-          disabled={!this.state.inputIsValid}>
-          Upload photo
-         </button>
-        {photoCircle}
-      </>
+      <>{photoCircle}</>
     )
   }
 }
@@ -71,11 +40,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onInitPhotoUpload: (photoFile, token, userId) =>
-      dispatch(actions.initPhotoUpload(photoFile, token, userId)),
     onSetPhotoUrl: (photoUrl, token, userId) =>
       dispatch(actions.setPhotoUrl(photoUrl, token, userId))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Settings)
+export default connect(mapStateToProps, mapDispatchToProps)(UserPhoto)

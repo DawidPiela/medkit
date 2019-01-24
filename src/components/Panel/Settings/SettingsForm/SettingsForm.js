@@ -7,10 +7,6 @@ import Button from '../../../UI/Button/Button';
 import * as actions from '../../../../store/actions/index';
 
 class SettingsForm extends Component {
-  componentDidMount() {
-    this.props.onInitUserData(this.props.token, this.props.userId)
-  }
-
   state = {
     controls: {
       firstName: elements.firstName,
@@ -18,6 +14,26 @@ class SettingsForm extends Component {
     },
     formIsValid: false
   };
+
+  componentDidMount() {
+    this.props.onInitUserData(this.props.token, this.props.userId)
+    const userData = { ...this.props.userData }
+    const user = { ...userData[this.props.userId] }
+
+    const updatedControls = {
+      ...this.state.controls,
+      firstName: {
+        ...this.state.controls.firstName,
+        value: user.firstName
+      },
+      lastName: {
+        ...this.state.controls.lastName,
+        value: user.lastName
+      }
+    };
+
+    this.setState({ controls: updatedControls });
+  }
 
   checkValidity(value, rules) {
     let isValid = true;
@@ -51,9 +67,6 @@ class SettingsForm extends Component {
     };
 
     let formIsValid = true
-    for (let inputIdentifier in updatedControls) {
-      formIsValid = updatedControls[inputIdentifier].valid && formIsValid
-    }
 
     this.setState({ controls: updatedControls, formIsValid: formIsValid });
   };
@@ -67,16 +80,13 @@ class SettingsForm extends Component {
     }
 
     this.props.onPatchUserData(
+      this.props.token,
       this.props.userId,
       userData
     )
   };
 
   render() {
-    const userData = { ...this.props.userData }
-    const user = { ...userData[this.props.userId] }
-    // this.state.controls.firstName.value = user.firstName
-    // this.state.controls.lastName.value = user.lastName
 
     const formElementsArray = [];
     for (let key in this.state.controls) {
@@ -121,7 +131,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onInitUserData: (token, userId) => dispatch(actions.initUserData(token, userId)),
-    onPatchUserData: (userId, userData) => dispatch(actions.patchUserData(userId, userData))
+    onPatchUserData: (token, userId, userData) => dispatch(actions.patchUserData(token, userId, userData))
   }
 }
 

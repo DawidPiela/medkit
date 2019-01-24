@@ -52,12 +52,6 @@
       display: block;
     }
   }
-  span {
-    display: none;
-    @media #{$desktop} {
-      display: block;
-    }
-  }
   @media #{$small} {
     line-height: 73px;
   }

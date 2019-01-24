@@ -19,3 +19,7 @@ export {
   initPhotoUpload,
   setPhotoUrl
 } from './photo';
+
+export {
+  fetchPrescriptionData
+} from './prescription';

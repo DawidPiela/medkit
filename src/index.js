@@ -12,6 +12,7 @@ import authReducer from './store/reducers/auth';
 import userReducer from './store/reducers/user';
 import appointmentReducer from './store/reducers/appointment';
 import photoReducer from './store/reducers/photo';
+import prescriptionReducer from './store/reducers/prescription';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
   auth: authReducer,
   user: userReducer,
   appointment: appointmentReducer,
-  photo: photoReducer
+  photo: photoReducer,
+  prescription: prescriptionReducer
 })
 
 const store = createStore(rootReducer, composeEnhancers(

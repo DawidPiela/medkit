@@ -46,7 +46,7 @@ export const updateUserDataFailed = () => {
   }
 }
 
-export const patchUserData = (userId, userData) => {
+export const patchUserData = (token, userId, userData) => {
   return dispatch => {
     dispatch(updateUserDataStart())
     let database = firebase.database()
@@ -59,6 +59,7 @@ export const patchUserData = (userId, userData) => {
         dispatch(updateUserDataFailed())
       } else {
         dispatch(updateUserData())
+        dispatch(initUserData(token, userId))
       }
     })
   }

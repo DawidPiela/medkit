@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import styles from './TopNav.module.scss';
 import UserName from './UserName/UserName';
+import UserPhoto from './UserPhoto/UserPhoto';
 
 class TopNav extends Component {
   state = {
@@ -33,7 +34,7 @@ class TopNav extends Component {
             <NavLink to='/'>To the Home Page!</NavLink>
           </li>
           <li onClick={this.dropdownMenuHandler} className={`${styles.navItem} ${styles.navButton}`}>
-            <UserName name='jan' />
+            <UserName />
           </li>
           <li onClick={this.dropdownMenuHandler} className={`${styles.navItem} ${styles.navButton}`}>
             <span><i
@@ -41,7 +42,7 @@ class TopNav extends Component {
               aria-hidden='true'></i></span>
           </li>
           <li onClick={this.dropdownMenuHandler} className={`${styles.navItem} ${styles.navButton}`}>
-            <img className={styles.userPhoto} src={this.props.userPhoto} alt='user' />
+            <UserPhoto />
           </li>
         </ul>
         <div className={dropdownClasses} onClick={this.dropdownMenuHandler}>

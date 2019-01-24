@@ -36,11 +36,16 @@ const updateUserDataFailed = (state, action) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SET_USER_DATA: return setUserData(state, action)
-    case actionTypes.FETCH_USER_DATA_FAILED: return fetchUserDataFailed(state, action)
-    case actionTypes.UPDATE_USER_DATA: return updateUserData(state, action)
-    case actionTypes.UPDATE_USER_DATA_START: return updateUserDataStart(state, action)
-    case actionTypes.UPDATE_USER_DATA_FAILED: return updateUserDataFailed(state, action)
+    case actionTypes.SET_USER_DATA:
+      return setUserData(state, action)
+    case actionTypes.FETCH_USER_DATA_FAILED:
+      return fetchUserDataFailed(state, action)
+    case actionTypes.UPDATE_USER_DATA:
+      return updateUserData(state, action)
+    case actionTypes.UPDATE_USER_DATA_START:
+      return updateUserDataStart(state, action)
+    case actionTypes.UPDATE_USER_DATA_FAILED:
+      return updateUserDataFailed(state, action)
     default: return state;
   }
 }

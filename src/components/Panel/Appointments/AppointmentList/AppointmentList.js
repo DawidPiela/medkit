@@ -24,6 +24,7 @@ class AppointmentList extends Component {
   }
 
   render() {
+    console.log(this.props.appointmentsListData)
     let appointments = this.props.appointmentsListData.map(appointment => (
       <Appointment
         key={appointment.id}
@@ -84,7 +85,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchAppointmentData: (token, userId) => dispatch(actions.fetchAppointmentData(token, userId))
+    onFetchAppointmentData: (token, userId) =>
+      dispatch(actions.fetchAppointmentData(token, userId))
   }
 }
 

@@ -56,6 +56,7 @@ export const fetchAppointmentData = (token, userId) => {
     const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"'
     axios.get('/appointments.json' + queryParams)
       .then(response => {
+        // console.log(response.data)
         const fetchedAppointments = []
         for (let key in response.data) {
           fetchedAppointments.push({
@@ -63,6 +64,7 @@ export const fetchAppointmentData = (token, userId) => {
             id: key
           })
         }
+        // console.log(fetchedAppointments)
         dispatch(setAppointmentData(fetchedAppointments))
       })
       .catch(err => {

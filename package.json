@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-pdf/renderer": "^1.2.1",
     "axios": "^0.18.0",
     "firebase": "^5.8.0",
     "node-sass": "^4.10.0",
