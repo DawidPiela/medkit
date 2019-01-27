@@ -51,6 +51,7 @@ class Settings extends Component {
           id="settings_component_input"
           onChange={event => this.fileInputChangedHandler(event)}></input>
         <button
+          className={styles.Button}
           onClick={this.onPhotoUpload}
           disabled={!this.state.inputIsValid}>
           Upload photo

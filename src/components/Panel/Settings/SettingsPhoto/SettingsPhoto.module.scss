@@ -12,3 +12,8 @@
   font-size: 30px;
   color: #3a3c43;
 }
+
+.Button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
