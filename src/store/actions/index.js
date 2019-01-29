@@ -23,3 +23,8 @@ export {
 export {
   fetchPrescriptionData
 } from './prescription';
+
+export {
+  initLaboratoryData,
+  fetchLaboratoryData
+} from './laboratory';

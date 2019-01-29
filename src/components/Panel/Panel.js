@@ -6,7 +6,6 @@ import Appointments from './Appointments/Appointments';
 import Dashboard from './Dashboard/Dashboard';
 import Laboratory from './Laboratory/Laboratory';
 import Prescriptions from './Prescriptions/Prescriptions';
-import Profile from './Profile/Profile';
 import Settings from './Settings/Settings';
 import styles from './Panel.module.scss';
 
@@ -60,10 +59,6 @@ class Panel extends Component {
                 className='fa fa-fw fa-prescription-bottle-alt'
                 aria-hidden='true'></i></span><p>Prescriptions</p></NavLink></li>
             <li><NavLink
-              activeClassName={styles.active} to='/panel/profile'><span><i
-                className='fa fa-fw fa-id-card-alt'
-                aria-hidden='true'></i></span><p>Personal Data</p></NavLink></li>
-            <li><NavLink
               activeClassName={styles.active} to='/panel/settings'><span><i
                 className='fa fa-fw fa-cog'
                 aria-hidden='true'></i></span><p>Settings</p></NavLink></li>
@@ -76,7 +71,6 @@ class Panel extends Component {
           <Route path='/panel/dashboard' component={Dashboard} />
           <Route path='/panel/laboratory' component={Laboratory} />
           <Route path='/panel/prescriptions' component={Prescriptions} />
-          <Route path='/panel/profile' component={Profile} />
           <Route path='/panel/settings' component={Settings} />
         </div>
       </>
