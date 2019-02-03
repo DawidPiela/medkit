@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import styles from './Appointments.module.scss';
 import AppointmentList from './AppointmentList/AppointmentList';
 import AppointmentForm from './AppointmentForm/AppointmentForm';
 
@@ -10,12 +9,8 @@ class Appointments extends Component {
 
     return (
       <>
-        <div className={styles.box}>
-          <AppointmentList />
-        </div>
-        <div className={styles.box}>
-          <AppointmentForm />
-        </div>
+        <AppointmentForm />
+        <AppointmentList />
       </>
     )
   }

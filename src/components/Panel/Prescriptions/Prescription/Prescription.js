@@ -13,12 +13,34 @@ class Prescription extends Component {
     }
 
     const prescriptionsOutput = prescriptions.map(data => {
-      return <span key={data.name}>{data.name}: {data.data}<br /></span>
+      let icon
+      switch (data.name) {
+        case 'Afternoon': icon =
+          (<span><i
+            className='fas fa-cloud-moon'
+            aria-hidden='true'></i>
+          </span>)
+          break;
+        case 'Morning': icon =
+          (<span><i
+            className='fas fa-sun'
+            aria-hidden='true'></i>
+          </span>)
+          break
+        case 'Evening': icon =
+          (<span><i
+            className='fas fa-moon'
+            aria-hidden='true'></i>
+          </span>)
+          break
+        default: icon = null
+      }
+      return <span key={data.name}>{data.name}: {icon} {data.data}<br /></span>
     })
 
     return (
       <>
-        <p>data: {prescriptionsOutput}</p>
+        <p>{prescriptionsOutput}</p>
       </>
     )
   }

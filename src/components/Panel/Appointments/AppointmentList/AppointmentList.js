@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
+import styles from './AppointmentList.module.scss';
 import axios from '../../../../axios-instance';
 import * as actions from '../../../../store/actions/index';
 import Appointment from './Appointment/Appointment';
@@ -57,7 +58,8 @@ class AppointmentList extends Component {
     })
 
     return (
-      <>
+      <div className={styles.box}>
+        <h3>Appointments</h3>
         {!this.props.loading ?
           <div>
             <ul>
@@ -68,7 +70,7 @@ class AppointmentList extends Component {
             </ul>
           </div>
           : <Spinner />}
-      </>
+      </div>
     )
   }
 }

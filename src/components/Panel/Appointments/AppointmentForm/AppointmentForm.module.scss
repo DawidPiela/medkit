@@ -1,0 +1,12 @@
+@import '../../../../styles/main.scss';
+
+.form {
+  @include half-box;
+  @include form;
+}
+
+.calendar {
+  width: 100%;
+  background-color: white;
+  margin-top: 20px;
+}

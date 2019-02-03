@@ -1,0 +1,11 @@
+@import '../../../../styles/main.scss';
+
+.box {
+  @include half-box;
+}
+
+.boxHeader {
+  padding: 0;
+  margin: 0;
+  background-color: $accent-color-blue;
+}

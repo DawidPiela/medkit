@@ -169,6 +169,8 @@ $desktop-box-width: 230px;
 
 .content {
   @include base-transition;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .marginMobile {

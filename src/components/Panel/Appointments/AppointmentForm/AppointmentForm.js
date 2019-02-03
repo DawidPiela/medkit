@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Calendar from 'react-calendar'
+import Calendar from 'react-calendar';
 import { connect } from 'react-redux';
 
+import styles from './AppointmentForm.module.scss';
 import Input from '../../../UI/Input/Input';
 import Button from '../../../UI/Button/Button';
 import * as elements from './appointmentElements';
@@ -111,9 +112,13 @@ class AppointmentForm extends Component {
 
     return (
       <>
-        <form onSubmit={this.submitHandler}>
+        <form onSubmit={this.submitHandler} className={styles.form}>
           {form}
-          <Calendar onChange={date => this.calendarChangedHandler(date)} value={this.state.date} />
+          <Calendar
+            onChange={date => this.calendarChangedHandler(date)}
+            value={this.state.date}
+            className={styles.calendar}
+            locale="en-GB" />
           <Button btnType='Success' disabled={!this.state.formIsValid}>SUBMIT</Button>
         </form>
       </>

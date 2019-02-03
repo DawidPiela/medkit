@@ -31,3 +31,27 @@ a {
 h1, h2, h3 {
   line-height: 1.1;
 }
+
+.box {
+  @include center-text;
+  @include base-transition;
+  background-color: $base-background;
+  border: 1px solid $base-border-color;
+  border-radius: 7px;
+  padding: 0;
+  margin: 10px;
+  -webkit-box-shadow: 0px 0px 10px 2px rgba(222,222,222,0.5);
+  -moz-box-shadow: 0px 0px 10px 2px rgba(222,222,222,0.5);
+  box-shadow: 0px 0px 10px 2px rgba(222,222,222,0.5);
+  @media #{$phone} {
+    padding: 0;
+    margin: 15px;
+  }
+  h3 {
+    background-color: $accent-color-purple;
+    margin: 0;
+    border-radius: 7px 7px 0 0;
+    padding: 10px;
+    color: black;
+  }
+}
