@@ -5,6 +5,7 @@ import axios from '../../../../axios-instance';
 import * as actions from '../../../../store/actions/index';
 import Test from './Test/Test';
 import Spinner from '../../../UI/Spinner/Spinner';
+import styles from './TestList.module.scss';
 
 class TestList extends Component {
 
@@ -24,6 +25,11 @@ class TestList extends Component {
   }
 
   render() {
+    let paragraphStyle = {
+      padding: '25px',
+      fontSize: '16px'
+    }
+
     let tests = this.props.laboratoryListData.map(test => (
       <Test
         key={test.id}
@@ -36,7 +42,7 @@ class TestList extends Component {
     const currentTests = tests.slice(indexOfFirstTest, indexOfLastTest)
 
     const renderTests = currentTests.map((test, index) => {
-      return <li key={index}>{test}</li>
+      return <li key={index} className={styles.liStyle}>{test}</li>
     })
 
     const pageNumbers = []
@@ -50,6 +56,7 @@ class TestList extends Component {
           key={number}
           id={number}
           onClick={this.currentPageHandler}
+          className={styles.pageNumbersLiStyle}
         >
           {number}
         </li>
@@ -57,18 +64,24 @@ class TestList extends Component {
     })
 
     return (
-      <>
+      <div className={styles.box}>
+        <h3>Your medical appointments</h3>
         {!this.props.loading ?
           <div>
-            <ul>
-              {renderTests}
-            </ul>
-            <ul>
-              {renderPageNumbers}
-            </ul>
+            {renderTests ?
+              <>
+                <ul className={styles.ulStyle}>
+                  {renderTests}
+                </ul>
+                <ul className={styles.pageNumbersUlStyle}>
+                  {renderPageNumbers}
+                </ul>
+              </>
+              : <p style={paragraphStyle}>You don't have any medical appointment yet!</p>
+            }
           </div>
           : <Spinner />}
-      </>
+      </div>
     )
   }
 }

@@ -7,6 +7,7 @@ import Button from '../../../UI/Button/Button';
 import * as elements from './laboratoryElements';
 import * as actions from '../../../../store/actions/index';
 import TestInfo from './testInfo.json';
+import styles from './LaboratoryForm.module.scss';
 
 class LaboratoryForm extends Component {
   state = {
@@ -75,14 +76,19 @@ class LaboratoryForm extends Component {
     ));
 
     return (
-      <>
-        <form onSubmit={this.submitHandler}>
+      <div className={styles.box}>
+        <h3>Select your medical test</h3>
+        <form onSubmit={this.submitHandler} className={styles.form}>
           {form}
           <p>{testInfo}</p>
-          <Calendar onChange={date => this.calendarChangedHandler(date)} value={this.state.date} />
+          <Calendar
+            onChange={date => this.calendarChangedHandler(date)}
+            value={this.state.date}
+            className={styles.calendar}
+            locale="en-GB" />
           <Button btnType='Success' >SUBMIT</Button>
         </form>
-      </>
+      </div>
     )
   }
 }

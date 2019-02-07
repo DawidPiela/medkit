@@ -11,7 +11,7 @@ class AppointmentList extends Component {
 
   state = {
     currentPage: 1,
-    appointmentsPerPage: 2
+    appointmentsPerPage: 4
   }
 
   componentDidMount() {
@@ -25,6 +25,11 @@ class AppointmentList extends Component {
   }
 
   render() {
+    let paragraphStyle = {
+      padding: '25px',
+      fontSize: '16px'
+    }
+
     let appointments = this.props.appointmentsListData.map(appointment => (
       <Appointment
         key={appointment.id}
@@ -37,7 +42,7 @@ class AppointmentList extends Component {
     const currentAppointments = appointments.slice(indexOfFirstAppointment, indexOfLastAppointment)
 
     const renderAppointments = currentAppointments.map((appointment, index) => {
-      return <li key={index}>{appointment}</li>
+      return <li key={index} className={styles.liStyle}>{appointment}</li>
     })
 
     const pageNumbers = []
@@ -51,6 +56,7 @@ class AppointmentList extends Component {
           key={number}
           id={number}
           onClick={this.currentPageHandler}
+          className={styles.pageNumbersLiStyle}
         >
           {number}
         </li>
@@ -62,12 +68,18 @@ class AppointmentList extends Component {
         <h3>Appointments</h3>
         {!this.props.loading ?
           <div>
-            <ul>
-              {renderAppointments}
-            </ul>
-            <ul>
-              {renderPageNumbers}
-            </ul>
+            {renderAppointments ?
+              <>
+                <ul className={styles.ulStyle}>
+                  {renderAppointments}
+                </ul>
+                <ul className={styles.pageNumbersUlStyle}>
+                  {renderPageNumbers}
+                </ul>
+              </>
+              : <p style={paragraphStyle}>You don't have any appointment yet!</p>
+            }
+
           </div>
           : <Spinner />}
       </div>

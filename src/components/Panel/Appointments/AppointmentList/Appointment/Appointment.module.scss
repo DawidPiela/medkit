@@ -1,0 +1,66 @@
+@import '../../../../../styles/main.scss';
+
+@mixin appointmentElement($elementOrder) {
+  padding: 5px;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  order: $elementOrder;
+  transition: all 0.5s ease;
+  word-break: break-all;
+  span {
+    transition: all 0.5s ease;
+    margin: 0;
+    line-height: 20px;
+  }
+  p {
+    margin: 0;
+    line-height: 20px;
+  }
+}
+
+@mixin fullName {
+  color: $base-header-color;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.date {
+  @include appointmentElement(5);
+}
+
+.doctorId {
+  @include appointmentElement(4);
+}
+
+.email {
+  @include appointmentElement(3);
+}
+
+.firstName {
+  @include fullName;
+  @include appointmentElement(1);
+  justify-content: flex-start;
+}
+
+.lastName {
+  @include fullName;
+  @include appointmentElement(2);
+  justify-content: flex-start;
+}
+
+.message {
+  @include appointmentElement(6);
+  justify-content: flex-start;
+  border-top: 1px solid $base-border-color;
+  word-wrap: break-word;
+  flex-shrink: 20;
+}
+
+.fullName {
+  padding: 5px;
+  color: $base-header-color;
+  font-weight: bold;
+  font-size: 16px;
+}

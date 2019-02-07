@@ -4,6 +4,9 @@
   @include half-box;
   @include form;
   padding: 0px;
+  p {
+    padding: 10px;
+  }
 }
 
 .calendar {

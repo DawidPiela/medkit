@@ -111,7 +111,8 @@ class AppointmentForm extends Component {
     ));
 
     return (
-      <>
+      <div className={styles.box}>
+        <h3>Book appointment</h3>
         <form onSubmit={this.submitHandler} className={styles.form}>
           {form}
           <Calendar
@@ -121,7 +122,7 @@ class AppointmentForm extends Component {
             locale="en-GB" />
           <Button btnType='Success' disabled={!this.state.formIsValid}>SUBMIT</Button>
         </form>
-      </>
+      </div>
     )
   }
 }
