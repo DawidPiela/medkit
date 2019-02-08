@@ -5,6 +5,7 @@ import * as elements from './settingsElements';
 import Input from '../../../UI/Input/Input';
 import Button from '../../../UI/Button/Button';
 import * as actions from '../../../../store/actions/index';
+import styles from './SettingsForm.module.scss';
 
 class SettingsForm extends Component {
   state = {

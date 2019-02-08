@@ -45,19 +45,23 @@ class Settings extends Component {
     }
 
     return (
-      <>
-        <input
-          type="file"
-          id="settings_component_input"
-          onChange={event => this.fileInputChangedHandler(event)}></input>
-        <button
-          className={styles.Button}
-          onClick={this.onPhotoUpload}
-          disabled={!this.state.inputIsValid}>
-          Upload photo
-         </button>
+      <div className={styles.colorBox}>
         {photoCircle}
-      </>
+        <div className={styles.uploadArea}>
+          <input
+            type="file"
+            id="settings_component_input"
+            onChange={event => this.fileInputChangedHandler(event)}></input>
+          <p>Drag your files here or click in this area.</p>
+          <button
+            className={styles.Button}
+            onClick={this.onPhotoUpload}
+            disabled={!this.state.inputIsValid}>
+            Upload photo
+         </button>
+        </div>
+
+      </div>
     )
   }
 }
