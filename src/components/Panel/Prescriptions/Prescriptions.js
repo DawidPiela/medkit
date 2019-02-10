@@ -23,9 +23,9 @@ class Prescriptions extends Component {
     return (
       <>
         {!this.props.loading ?
-          <div>
+          <>
             {prescriptions}
-          </div>
+          </>
           : <Spinner />
         }
       </>

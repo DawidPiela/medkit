@@ -112,7 +112,7 @@ class SettingsForm extends Component {
 
     return (
       <>
-        <form onSubmit={this.submitHandler}>
+        <form className={styles.form} onSubmit={this.submitHandler}>
           {form}
           <Button btnType='Success' disabled={!this.state.formIsValid}>Save all settings</Button>
         </form>

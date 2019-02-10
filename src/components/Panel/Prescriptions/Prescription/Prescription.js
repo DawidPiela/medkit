@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import styles from './Prescription.module.scss';
+
 class Prescription extends Component {
   render() {
     const prescriptions = []
@@ -39,9 +41,9 @@ class Prescription extends Component {
     })
 
     return (
-      <>
+      <div className={styles.box}>
         <p>{prescriptionsOutput}</p>
-      </>
+      </div>
     )
   }
 }

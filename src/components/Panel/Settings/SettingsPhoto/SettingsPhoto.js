@@ -52,13 +52,16 @@ class Settings extends Component {
             type="file"
             id="settings_component_input"
             onChange={event => this.fileInputChangedHandler(event)}></input>
-          <p>Drag your files here or click in this area.</p>
+          <span><i
+            className='fa fa-fw fa-plus'
+            aria-hidden='true'></i></span>
+          <p>Drag your files or click here</p>
           <button
             className={styles.Button}
             onClick={this.onPhotoUpload}
             disabled={!this.state.inputIsValid}>
-            Upload photo
-         </button>
+            <p className={styles.btnText}>Upload photo</p>
+          </button>
         </div>
 
       </div>

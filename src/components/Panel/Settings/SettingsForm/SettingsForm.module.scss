@@ -1,10 +1,8 @@
 @import '../../../../styles/main.scss';
 
-input[type] {
-  color: $accent-color-navy;
-  border: none;
-  border-bottom: 1px solid $base-border-color;
-}
-textarea[type] {
-  height: 80px;
+.form {
+  @include form;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
