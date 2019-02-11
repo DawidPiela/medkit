@@ -3,3 +3,91 @@
 .box {
   @include half-box;
 }
+
+.mt4 {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0 0;
+}
+
+@mixin prescriptionElement($elementOrder) {
+  padding: 5px;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  order: $elementOrder;
+  transition: all 0.5s ease;
+  word-break: break-all;
+}
+
+@mixin frequencyElement {
+  border-bottom: 1px solid $accent-color-red;
+  -webkit-box-shadow: 0px 7px 15px -5px rgba(black, 0.2);
+  -moz-box-shadow: 0px 7px 15px -5px rgba(black, 0.2);
+  box-shadow: 0px 7px 15px -5px rgba(black, 0.2);
+}
+
+.medicine {
+  @include prescriptionElement(1);
+  color: black;
+  font-size: 16px;
+}
+
+.dose {
+  @include prescriptionElement(3);
+}
+
+.duration {
+  @include prescriptionElement(4);
+}
+
+.frequency {
+  @include prescriptionElement(2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.morning {
+  @include frequencyElement;
+  order: 1;
+}
+
+.afternoon {
+  @include frequencyElement;
+  order: 2;
+}
+
+.evening {
+  @include frequencyElement;
+  order: 3;
+}
+
+.pdfButton {
+  color: white;
+  background-color: $accent-color-red;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 16px;
+  padding: 15px 40px;
+  margin: 25px;
+  -webkit-box-shadow: 0px 10px 15px -5px rgba($accent-color-red, 0.4);
+  -moz-box-shadow: 0px 10px 15px -5px rgba($accent-color-red, 0.4);
+  box-shadow: 0px 10px 15px -5px rgba($accent-color-red, 0.4);
+  &:hover {
+  -webkit-box-shadow: 0px 10px 15px -5px rgba($accent-color-red, 0.6);
+  -moz-box-shadow: 0px 10px 15px -5px rgba($accent-color-red, 0.6);
+  box-shadow: 0px 10px 15px -5px rgba($accent-color-red, 0.6);
+  }
+  &:active {
+    background-color: darken($color: $accent-color-red, $amount: 10%);
+    -webkit-box-shadow: 0px 6px 15px -5px rgba($accent-color-red, 0.6);
+    -moz-box-shadow: 0px 6px 15px -5px rgba($accent-color-red, 0.6);
+    box-shadow: 0px 6px 15px -5px rgba($accent-color-red, 0.6);
+    transform: translateY(4px);
+  }
+}
