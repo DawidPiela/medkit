@@ -1,0 +1,7 @@
+@import '../../../../styles/main.scss';
+
+.doctors {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

@@ -1,23 +1,19 @@
 export const JQ1 = {
   name: 'Joan Quinn',
-  specialization: 'Sport Physician',
-  info: 'Lorem Ipsum'
+  specialization: 'Sport Physician'
 }
 
 export const VP1 = {
   name: 'Vince Patel',
-  specialization: 'Cardiologist',
-  info: 'Lorem Ipsum'
+  specialization: 'Cardiologist'
 }
 
 export const SR1 = {
   name: 'Susan Reily',
-  specialization: 'Dietician',
-  info: 'Lorem Ipsum'
+  specialization: 'Dietician'
 }
 
 export const MJ1 = {
   name: 'Mike Jones',
-  specialization: 'Internist',
-  info: 'Lorem Ipsum'
+  specialization: 'Internist'
 }

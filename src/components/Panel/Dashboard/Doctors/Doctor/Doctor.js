@@ -47,11 +47,18 @@ class Doctor extends Component {
       }
       return <div
         key={doctor.id}
+        className={styles.doctorBox}
       >
-        <p>{doctor.config.name}</p>
-        <img className={styles.doctorPhoto} src={doctorPhoto} alt="doctor"></img>
-        <p>{doctor.config.specialization}</p>
-        <p>{doctor.config.info}</p>
+        <div className={styles.colorBox}>
+          <img className={styles.doctorPhoto} src={doctorPhoto} alt="doctor"></img>
+          <p>{doctor.config.name}</p>
+          <div className={styles.iconCircle}>
+            <span><i
+              className='fas fa-fw fa-user-md'
+              aria-hidden='true'></i></span>
+          </div>
+        </div>
+        <p className={styles.doctorSpec}>{doctor.config.specialization}</p>
       </div>
     })
 
