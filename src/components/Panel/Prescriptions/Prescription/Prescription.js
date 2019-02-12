@@ -10,9 +10,15 @@ class Prescription extends Component {
     const input = document.getElementById('divToPrint')
     html2canvas(input)
       .then((canvas) => {
+        const width = (input.offsetWidth) / 2
+        const height = (input.offsetHeight) / 2
         const imgData = canvas.toDataURL('image/png')
-        const pdf = new jsPDF()
-        pdf.addImage(imgData, 'JPEG', 0, 0)
+        const pdf = new jsPDF({
+          orientation: 'landscape',
+          unit: 'px',
+          format: [width, height]
+        })
+        pdf.addImage(imgData, 'JPEG', 0, 0, width, height)
         pdf.save("download.pdf")
       })
   }
@@ -40,10 +46,10 @@ class Prescription extends Component {
         case 'Dose': return <div
           key={data.name}
           className={styles.dose}>
-          {data.name}: {data.data}
           <span>
             <i className='fas fa-pills' aria-hidden='true'></i>
           </span>
+          <p>{data.name}: {data.data}</p>
         </div>
         case 'Duration': return <div
           key={data.name}
@@ -52,22 +58,22 @@ class Prescription extends Component {
         </div>
         case 'Afternoon': frequencyDiv.push(<div
           key={data.name}
-          className={styles.afternoon}>{data.name}: <span>
+          className={styles.afternoon}><span>
             <i className='fas fa-cloud-moon' aria-hidden='true'></i>
           </span>
-          {data.data}<br /></div>); return null;
+          <p>{data.name}: {data.data}</p><br /></div>); return null;
         case 'Morning': frequencyDiv.push(<div
           key={data.name}
-          className={styles.morning}>{data.name}: <span>
+          className={styles.morning}><span>
             <i className='fas fa-sun' aria-hidden='true'></i>
           </span>
-          {data.data}<br /></div>); return null;
+          <p>{data.name}: {data.data}</p><br /></div>); return null;
         case 'Evening': frequencyDiv.push(<div
           key={data.name}
-          className={styles.evening}>{data.name}: <span>
+          className={styles.evening}><span>
             <i className='fas fa-moon' aria-hidden='true'></i>
           </span>
-          {data.data}<br /></div>); return null;
+          <p>{data.name}: {data.data}</p><br /></div>); return null;
         default: return null
       }
     })

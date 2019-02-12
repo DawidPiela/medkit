@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   padding: 15px 0 0;
+  margin: 0;
 }
 
 @mixin prescriptionElement($elementOrder) {
@@ -22,10 +23,22 @@
 }
 
 @mixin frequencyElement {
+
+}
+
+@mixin icon {
+  color: $accent-color-red;
+  font-size: 26px;
+  padding: 0 15px 15px;
   border-bottom: 1px solid $accent-color-red;
-  -webkit-box-shadow: 0px 7px 15px -5px rgba(black, 0.2);
-  -moz-box-shadow: 0px 7px 15px -5px rgba(black, 0.2);
-  box-shadow: 0px 7px 15px -5px rgba(black, 0.2);
+  -webkit-box-shadow: 0px 10px 15px -7px rgba(black, 0.2);
+  -moz-box-shadow: 0px 10px 15px -7px rgba(black, 0.2);
+  box-shadow: 0px 10px 15px -7px rgba(black, 0.2);
+}
+
+@mixin paragraph {
+  padding: 15px 0 0;
+  font-size: 14px;
 }
 
 .medicine {
@@ -36,10 +49,22 @@
 
 .dose {
   @include prescriptionElement(3);
+  flex-direction: column;
+  i {
+    @include icon;
+  }
+  p {
+    @include paragraph;
+  }
 }
 
 .duration {
   @include prescriptionElement(4);
+  p {
+    @include paragraph;
+    color: black;
+    font-size: 16px;
+  }
 }
 
 .frequency {
@@ -47,6 +72,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  i {
+    @include icon;
+  }
+  p {
+    @include paragraph;
+  }
 }
 
 .morning {
