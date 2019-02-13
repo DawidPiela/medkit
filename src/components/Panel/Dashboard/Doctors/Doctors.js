@@ -7,9 +7,9 @@ class Doctors extends Component {
   render() {
 
     return (
-      <div className={styles.doctors}>
+      <ul className={styles.doctors}>
         <Doctor />
-      </div>
+      </ul>
     )
   }
 }

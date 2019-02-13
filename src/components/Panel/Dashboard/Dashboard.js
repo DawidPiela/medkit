@@ -18,10 +18,6 @@ class Dashboard extends Component {
             <Doctors />
           </div>
         </Tabs>
-        {/* <ul className={styles.pages}>
-          <li><a href="/">Dashboard</a></li>
-          <li><a href="/">Doctors</a></li>
-        </ul> */}
       </div>
     )
   }

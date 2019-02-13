@@ -45,7 +45,7 @@ class Doctor extends Component {
         default:
           break;
       }
-      return <div
+      return <li
         key={doctor.id}
         className={styles.doctorBox}
       >
@@ -59,7 +59,7 @@ class Doctor extends Component {
           </div>
         </div>
         <p className={styles.doctorSpec}>{doctor.config.specialization}</p>
-      </div>
+      </li>
     })
 
     return (
