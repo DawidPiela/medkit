@@ -50,7 +50,6 @@ export const patchUserData = (token, userId, userData) => {
   return dispatch => {
     dispatch(updateUserDataStart())
     let database = firebase.database()
-    console.log(userData.firstName, userData.lastName)
     database.ref('users/' + userId).update({
       firstName: userData.firstName,
       lastName: userData.lastName

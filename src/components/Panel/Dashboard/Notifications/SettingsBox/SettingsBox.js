@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import Button from '../../../../UI/Button/Button';
 import styles from './SettingsBox.module.scss';
@@ -8,11 +9,14 @@ class SettingsBox extends Component {
 
     return (
       <li className={styles.notificationsLiStyle}>
-        <p>if you want to change your personal data go to setting !</p>
+        <h4>Settings</h4>
         <span><i
           className='fas fa-fw fa-sliders-h'
           aria-hidden='true'></i></span>
-        <Button>SETTINGS</Button>
+        <p>if you want to change your personal data go to setting !</p>
+        <NavLink to='/panel/settings'>
+          <Button btnType="Anchor">SETTINGS</Button>
+        </NavLink>
       </li>
     )
   }

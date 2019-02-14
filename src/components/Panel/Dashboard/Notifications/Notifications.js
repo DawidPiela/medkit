@@ -12,8 +12,8 @@ class Notifications extends Component {
     return (
       <ul className={styles.notifications}>
         <Greetings />
-        <SettingsBox />
         <Info />
+        <SettingsBox />
         <PrescriptionList />
       </ul>
     )

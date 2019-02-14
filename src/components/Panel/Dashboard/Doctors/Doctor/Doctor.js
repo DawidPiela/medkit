@@ -30,7 +30,6 @@ class Doctor extends Component {
     let doctorOutput = doctorsArray.map(doctor => {
       switch (doctor.id) {
         case 'JQ1':
-          console.log('cdd')
           doctorPhoto = photo_jq
           break;
         case 'VP1':

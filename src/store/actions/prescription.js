@@ -26,7 +26,6 @@ export const fetchPrescriptionData = (token, userId) => {
     const queryParams = '?auth=' + token
     axios.get('/prescriptions.json' + queryParams)
       .then(response => {
-        // console.log(response.data)
         const fetchedPrescriptions = []
         for (let key in response.data) {
           fetchedPrescriptions.push({
@@ -34,7 +33,6 @@ export const fetchPrescriptionData = (token, userId) => {
             id: key
           })
         }
-        // console.log(fetchedPrescriptions)
         dispatch(setPrescriptionData(fetchedPrescriptions))
       })
       .catch(err => {
